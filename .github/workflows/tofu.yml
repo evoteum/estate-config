@@ -1,0 +1,40 @@
+name: Apply OpenTofu Configuration
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  apply:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v3
+
+    - name: Set up OpenTofu
+      uses: opentofu/setup-opentofu@v1
+      with:
+        opentofu_version: 1.9.0
+
+    - name: Configure AWS credentials
+      uses: aws-actions/configure-aws-credentials@v4
+      with:
+        audience: sts.amazonaws.com
+        aws-region: ${{ vars.AWS_REGION }}
+        role-to-assume: ${{ vars.AWS_ROLE_TO_ASSUME }}
+
+    - name: Do that OpenTofu that you do so well
+      env:
+        TF_VAR_repo_name: ${{ github.event.repository.name }}
+        TF_VAR_github_token: ${{ secrets.GITHUB_TOKEN }}
+      run: |
+        tofu init -backend-config="bucket=${{ secrets.TOFU_STATE_BUCKET_NAME }}"
+        tofu plan -out=tfplan
+        tofu show -json tfplan > tfplan.json
+
+    - name: Apply OpenTofu configuration
+      run: |
+        tofu apply tfplan
