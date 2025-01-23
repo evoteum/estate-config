@@ -24,7 +24,7 @@ jobs:
       with:
         audience: sts.amazonaws.com
         aws-region: ${{ vars.AWS_REGION }}
-        role-to-assume: ${{ secret.AWS_ROLE_TO_ASSUME }}
+        role-to-assume: ${{ secrets.AWS_ROLE_TO_ASSUME }}
 
     - name: Do that OpenTofu that you do so well
       env:
