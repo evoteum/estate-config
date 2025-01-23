@@ -29,7 +29,6 @@ jobs:
     - name: Do that OpenTofu that you do so well
       env:
         TF_VAR_repo_name: ${{ github.event.repository.name }}
-        TF_VAR_github_token: ${{ secrets.GITHUB_TOKEN }}
       run: |
         tofu init -backend-config="bucket=${{ secrets.TOFU_STATE_BUCKET_NAME }}"
         tofu plan -out=tfplan
