@@ -35,10 +35,14 @@ jobs:
         TF_VAR_repo_name: ${{ github.event.repository.name }}
       run: |
         cd tofu
+        echo "Initializing OpenTofu"
         tofu init -backend-config="bucket=${{ secrets.TOFU_STATE_BUCKET_NAME }}"
+        echo "Planning OpenTofu"
         tofu plan -out=tfplan
+        echo "Showing OpenTofu plan"
         tofu show -json tfplan > tfplan.json
 
     - name: Apply OpenTofu configuration
       run: |
+        echo "Applying OpenTofu configuration"
         tofu apply tofu/tfplan
