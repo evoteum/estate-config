@@ -1,10 +1,4 @@
-locals {
-  create_oidc_provider = var.oidc_provider_arn == ""
-  oidc_provider_arn   = local.create_oidc_provider ? aws_iam_openid_connect_provider.github[0].arn : var.oidc_provider_arn
-}
-
 resource "aws_iam_openid_connect_provider" "github" {
-  count           = local.create_oidc_provider ? 1 : 0
   url             = "https://token.actions.githubusercontent.com"
   client_id_list  = ["sts.amazonaws.com"]
   thumbprint_list = ["ffffffffffffffffffffffffffffffffffffffff"]
@@ -21,7 +15,7 @@ data "aws_iam_policy_document" "github_actions_assume_role" {
     actions = ["sts:AssumeRoleWithWebIdentity"]
     principals {
       type        = "Federated"
-      identifiers = [local.oidc_provider_arn]
+      identifiers = [aws_iam_openid_connect_provider.github.arn]
     }
     condition {
       test     = "StringEquals"
@@ -31,7 +25,7 @@ data "aws_iam_policy_document" "github_actions_assume_role" {
     condition {
       test     = "StringLike"
       variable = "token.actions.githubusercontent.com:sub"
-      values   = ["repo:${var.org_name}/${var.repo_name}:*"]
+      values   = ["repo:${var.org_name}/*"]
     }
   }
 }
@@ -48,12 +42,21 @@ data "aws_iam_policy_document" "tofu_state_management" {
       "s3:ListBucket",
       "s3:GetObject",
       "s3:PutObject",
-      "s3:DeleteObject"
+      "s3:DeleteObject",
+      "sts:GetCallerIdentity"
     ]
     resources = [
       "arn:aws:s3:::${local.bucket_name}",
       "arn:aws:s3:::${local.bucket_name}/*"
     ]
+  }
+
+  statement {
+    effect = "Allow"
+    actions = [
+      "sts:GetCallerIdentity"
+    ]
+    resources = ["*"]
   }
 }
 
