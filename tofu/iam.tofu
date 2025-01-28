@@ -18,11 +18,6 @@ data "aws_iam_policy_document" "github_actions_assume_role" {
       identifiers = [aws_iam_openid_connect_provider.github.arn]
     }
     condition {
-      test     = "StringEquals"
-      variable = "token.actions.githubusercontent.com:aud"
-      values   = [var.oidc_audience]
-    }
-    condition {
       test     = "StringLike"
       variable = "token.actions.githubusercontent.com:sub"
       values   = ["repo:${var.org_name}/*"]
@@ -39,21 +34,12 @@ data "aws_iam_policy_document" "tofu_state_management" {
   statement {
     effect = "Allow"
     actions = [
-      "s3:ListBucket",
+      "ec2:Describe*",
       "s3:GetObject",
       "s3:PutObject",
       "s3:DeleteObject",
-      "sts:GetCallerIdentity"
-    ]
-    resources = [
-      "arn:aws:s3:::${local.bucket_name}",
-      "arn:aws:s3:::${local.bucket_name}/*"
-    ]
-  }
-
-  statement {
-    effect = "Allow"
-    actions = [
+      "s3:ListBucket",
+      "s3:ListAllMyBuckets",
       "sts:GetCallerIdentity"
     ]
     resources = ["*"]
