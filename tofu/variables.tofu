@@ -17,12 +17,6 @@ variable "oidc_audience" {
   default     = "sts.amazonaws.com"
 }
 
-variable "oidc_provider_arn" {
-  type        = string
-  description = "Existing OIDC Provider ARN. If empty, a new provider will be created."
-  default     = ""
-}
-
 variable "org_name" {
   type        = string
   description = "The name of the organisation."

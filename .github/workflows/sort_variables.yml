@@ -1,0 +1,42 @@
+name: Sort Tofu Variables
+
+
+on:
+  push:
+    paths:
+      - "tofu/variables.tofu"
+    branches:
+      - main
+
+jobs:
+  tfsort:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Download and install tfsort
+        run: |
+          curl -L -o tfsort.tar.gz https://github.com/AlexNabokikh/tfsort/releases/download/v0.3.0/tfsort_0.3.0_linux_amd64.tar.gz
+          tar -xzf tfsort.tar.gz
+          chmod +x tfsort
+          sudo mv tfsort /usr/local/bin/
+
+      - name: Sort tofu variables
+        run: |
+          tfsort -w tofu/variables.tofu
+
+      - name: Check for changes
+        id: git-diff
+        run: |
+          git diff --quiet || echo "changed=true" >> $GITHUB_ENV
+
+      - name: Commit and push changes
+        if: env.changed == 'true'
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git add tofu/variables.tofu
+          git commit -m "chore: sort tofu/variables.tofu using tfsort"
+          git push origin main
