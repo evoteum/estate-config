@@ -25,7 +25,7 @@ jobs:
 
       - name: Sort tofu variables
         run: |
-          tfsort -w tofu/variables.tofu
+          tfsort tofu/variables.tofu
 
       - name: Check for changes
         id: git-diff
