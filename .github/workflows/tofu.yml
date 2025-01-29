@@ -1,4 +1,4 @@
-name: Apply OpenTofu Configuration
+name: apply-opentofu
 
 on:
   push:
