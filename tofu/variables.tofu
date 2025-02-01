@@ -23,12 +23,6 @@ variable "github_installation_id" {
   sensitive   = true
 }
 
-variable "github_token" {
-  type        = string
-  description = "The GitHub token to use for authentication."
-  sensitive   = true
-}
-
 variable "oidc_audience" {
   type        = string
   description = "Audience for the OIDC provider"
