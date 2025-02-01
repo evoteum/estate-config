@@ -29,7 +29,7 @@ jobs:
       with:
         audience: sts.amazonaws.com
         aws-region: ${{ vars.AWS_REGION }}
-        role-to-assume: ${{ vars.AWS_ROLE_TO_ASSUME }}
+        role-to-assume: ${{ secrets.AWS_ROLE_TO_ASSUME }}
         role-session-name: ${{ github.event.repository.name }}--${{ github.workflow }}--${{ github.run_number }}--${{ github.job }}
 
     - name: Debug - Check AWS Authentication

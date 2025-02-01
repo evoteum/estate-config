@@ -1,4 +1,4 @@
-name: Sort Tofu Variables
+name: lint_tofu
 
 
 on:

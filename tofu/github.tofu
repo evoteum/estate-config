@@ -37,8 +37,8 @@ resource "github_actions_organization_variable" "aws_region" {
   visibility    = "all"
 }
 
-resource "github_actions_organization_variable" "aws_role_to_assume" {
-  variable_name     = "AWS_ROLE_TO_ASSUME"
+resource "github_actions_organization_secret" "aws_role_to_assume" {
+  secret_name     = "AWS_ROLE_TO_ASSUME"
   visibility      = "all"
-  value = aws_iam_role.github_role.arn
+  plaintext_value = aws_iam_role.github_role.arn
 }

@@ -14,6 +14,7 @@ data "aws_iam_policy_document" "github_policy" {
       "iam:ListAttachedRolePolicies",
       "iam:ListRolePolicies",
       "s3:DeleteObject",
+      "s3:GetAccelerateConfiguration",
       "s3:GetBucketAcl",
       "s3:GetBucketCORS",
       "s3:GetBucketPolicy",
