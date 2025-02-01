@@ -11,6 +11,7 @@ data "aws_iam_policy_document" "github_policy" {
       "iam:GetPolicyVersion",
       "iam:GetRole",
       "iam:ListAttachedRolePolicies",
+      "iam:ListPolicyVersions",
       "iam:ListRolePolicies",
       "s3:CreateBucket",
       "s3:DeleteObject",
