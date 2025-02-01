@@ -7,12 +7,15 @@ data "aws_iam_policy_document" "github_policy" {
   statement {
     actions = [
       "ec2:Describe*",
-      "s3:GetObject",
-      "s3:PutObject",
+      "iam:GetOpenIDConnectProvider",
+      "iam:GetPolicy",
       "s3:DeleteObject",
-      "s3:ListBucket",
+      "s3:GetBucketPolicy",
+      "s3:GetObject",
       "s3:ListAllMyBuckets",
-      "sts:GetCallerIdentity"
+      "s3:ListBucket",
+      "s3:PutObject",
+      "sts:GetCallerIdentity",
     ]
     effect = "Allow"
     resources = [
