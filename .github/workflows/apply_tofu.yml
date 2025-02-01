@@ -63,6 +63,7 @@ jobs:
     - name: Apply OpenTofu configuration
       if: steps.plan.outputs.changes == 'true'
       run: |
+        cd tofu
         echo "Applying OpenTofu configuration"
-        tofu apply tofu/tfplan
+        tofu apply tfplan
         
