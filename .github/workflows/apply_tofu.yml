@@ -2,9 +2,10 @@ name: apply_tofu
 
 on:
   push:
+    paths:
+      - "tofu/**"
     branches:
       - main
-  workflow_dispatch:
 
 permissions:
   id-token: write
