@@ -28,6 +28,7 @@ data "aws_iam_policy_document" "github_policy" {
       "s3:GetBucketRequestPayment",
       "s3:GetBucketLogging",
       "s3:GetLifecycleConfiguration",
+      "s3:GetBucketObjectLockConfiguration",
       "s3:GetReplicationConfiguration",
       "s3:GetEncryptionConfiguration",
     ]
