@@ -1,12 +1,17 @@
 locals {
-  bucket_suffix = random_string.bucket_suffix.result
-  bucket_name   = "tofu-state-${local.bucket_suffix}"
+  state_bucket_suffix = random_string.state_bucket_suffix.result
+  bucket_name   = "tofu-state-${local.state_bucket_suffix}"
 }
 
-resource "random_string" "bucket_suffix" {
+resource "random_string" "state_bucket_suffix" {
   length  = 16
   special = false
   upper   = false
+}
+
+moved {
+  from = random_string.bucket_suffix
+  to   = random_string.state_bucket_suffix
 }
 
 resource "aws_s3_bucket" "tofu_state" {
@@ -40,4 +45,8 @@ resource "aws_s3_bucket_public_access_block" "tofu_state" {
   block_public_policy     = true
   ignore_public_acls      = true
   restrict_public_buckets = true
+}
+
+resource "aws_s3_bucket" "tofu_test" {
+  bucket = "evoteum-tofu-test"
 }
