@@ -33,9 +33,9 @@ jobs:
         role-to-assume: ${{ secrets.AWS_ROLE_TO_ASSUME }}
         role-session-name: ${{ github.event.repository.name }}--${{ github.workflow }}--${{ github.run_number }}--${{ github.job }}
 
-    - name: Debug - Check AWS Authentication
+    - name: Verify AWS Authentication
       run: |
-        aws sts get-caller-identity
+        aws sts get-caller-identity >/dev/null && echo "✓ AWS accessible" || echo "✗ AWS not accessible"
 
     - name: Do that OpenTofu that you do so well
       id: plan
