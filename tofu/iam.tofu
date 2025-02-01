@@ -26,6 +26,7 @@ data "aws_iam_policy_document" "github_policy" {
       "s3:PutObject",
       "sts:GetCallerIdentity",
       "s3:GetBucketRequestPayment",
+      "s3:GetBucketLogging",
     ]
     effect = "Allow"
     resources = [
