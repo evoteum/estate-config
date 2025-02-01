@@ -25,6 +25,7 @@ data "aws_iam_policy_document" "github_policy" {
       "s3:ListBucket",
       "s3:PutObject",
       "sts:GetCallerIdentity",
+      "s3:GetBucketRequestPayment",
     ]
     effect = "Allow"
     resources = [
