@@ -12,6 +12,7 @@ data "aws_iam_policy_document" "github_policy" {
       "s3:DeleteObject",
       "s3:ListBucket",
       "s3:ListAllMyBuckets",
+      "sts:GetCallerIdentity"
     ]
     effect = "Allow"
     resources = [
