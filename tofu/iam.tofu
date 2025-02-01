@@ -6,6 +6,7 @@ resource "aws_iam_policy" "github_role_policy" {
 data "aws_iam_policy_document" "github_policy" {
   statement {
     actions = [
+      # Principle of least privilege: Only the specific actions required are allowed, so we avoid *.
       "iam:GetOpenIDConnectProvider",
       "iam:GetPolicy",
       "iam:GetPolicyVersion",

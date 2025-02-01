@@ -8,7 +8,7 @@
 [//]: # (Match repository name)
 [//]: # (REQUIRED)
 
-#  
+#  estate-config
 
 [//]: # (Banner)
 [//]: # (OPTIONAL)
@@ -28,6 +28,7 @@
 [//]: # (Must be less than 120 characters)
 [//]: # (Must match GitHub's description)
 
+Configuration for our estate
 
 [//]: # (Long Description)
 [//]: # (OPTIONAL)
@@ -58,6 +59,7 @@ This repo is public and does not contain any sensitive information. All secrets 
 
 Tofu that impacts everything is defined here. Avoid using this repo for project-specific infra or config.
 
+In the full spirit of FLOSS, we use OpenTofu and its preferred .tofu extension.
 
 ## Install
 
