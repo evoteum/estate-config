@@ -17,6 +17,7 @@ data "aws_iam_policy_document" "github_policy" {
       "s3:GetBucketAcl",
       "s3:GetBucketCORS",
       "s3:GetBucketPolicy",
+      "s3:GetBucketVersioning",
       "s3:GetBucketWebsite",
       "s3:GetObject",
       "s3:ListAllMyBuckets",
