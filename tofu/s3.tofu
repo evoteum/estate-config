@@ -1,6 +1,6 @@
 locals {
   state_bucket_suffix = random_string.state_bucket_suffix.result
-  bucket_name   = "tofu-state-${local.state_bucket_suffix}"
+  state_bucket_name   = "tofu-state-${local.state_bucket_suffix}"
 }
 
 resource "random_string" "state_bucket_suffix" {
@@ -9,13 +9,8 @@ resource "random_string" "state_bucket_suffix" {
   upper   = false
 }
 
-moved {
-  from = random_string.bucket_suffix
-  to   = random_string.state_bucket_suffix
-}
-
 resource "aws_s3_bucket" "tofu_state" {
-  bucket = local.bucket_name
+  bucket = local.state_bucket_name
   lifecycle {
     prevent_destroy = false
   }

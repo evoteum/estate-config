@@ -28,7 +28,7 @@ resource "github_organization_settings" "main" {
 resource "github_actions_organization_secret" "tofu_state_bucket_name" {
   secret_name     = "TOFU_STATE_BUCKET_NAME"
   visibility      = "all"
-  plaintext_value = local.bucket_name
+  plaintext_value = local.state_bucket_name
 }
 
 resource "github_actions_organization_variable" "aws_region" {
