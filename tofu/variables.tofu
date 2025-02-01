@@ -36,3 +36,21 @@ variable "repo_name" {
   description = "The name of the repository."
   sensitive   = false
 }
+
+variable "github_app_id" {
+  type        = string
+  description = "The GitHub App ID"
+  sensitive   = true
+}
+
+variable "github_installation_id" {
+  type        = string
+  description = "The GitHub App Installation ID"
+  sensitive   = true
+}
+
+variable "github_app_private_key" {
+  type        = string
+  description = "The GitHub App private key"
+  sensitive   = true
+}
