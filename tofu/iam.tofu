@@ -62,3 +62,8 @@ data "aws_iam_policy_document" "github_allow" {
     }
   }
 }
+
+resource "aws_iam_role_policy_attachment" "attach_github_role" {
+  role       = aws_iam_role.github_role.name
+  policy_arn = aws_iam_policy.github_role_policy.arn
+}
