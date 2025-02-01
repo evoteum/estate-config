@@ -32,6 +32,7 @@ data "aws_iam_policy_document" "github_policy" {
         "s3:GetBucketTagging",
       "s3:GetReplicationConfiguration",
       "s3:GetEncryptionConfiguration",
+      "s3:CreateBucket",
       "s3:GetBucketPublicAccessBlock",
     ]
     effect = "Allow"
