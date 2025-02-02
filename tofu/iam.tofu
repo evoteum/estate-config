@@ -28,6 +28,7 @@ data "aws_iam_policy_document" "github_policy" {
       "dynamodb:TagResource",
       "dynamodb:UpdateTable",
       "iam:CreateRole",
+      "iam:DeletePolicyVersion",
       "iam:DeleteRole",
       "iam:DeleteRolePolicy",
       "iam:GetOpenIDConnectProvider",
