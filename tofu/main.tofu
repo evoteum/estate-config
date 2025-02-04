@@ -27,9 +27,5 @@ provider "aws" {
 
 provider "github" {
   owner = var.org_name
-  app_auth {
-    id              = var.github_app_id
-    installation_id = var.github_installation_id
-    pem_file        = var.github_app_private_key
-  }
+  app_auth {} # When using `GITHUB_APP_XXX` environment variables
 }

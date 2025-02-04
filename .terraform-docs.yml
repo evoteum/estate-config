@@ -1,0 +1,42 @@
+formatter: "markdown table"
+
+header-from: "main.tofu"
+footer-from: ""
+
+recursive:
+  enabled: true
+  path: .
+
+sections:
+  show:
+    - requirements
+    - providers
+    - modules
+    - inputs
+    - outputs
+    - resources
+
+sort:
+  enabled: true
+  by: required
+
+output:
+  file: "README.md"
+  mode: inject
+  template: |-
+    <!-- BEGIN_TF_DOCS -->
+    {{ .Content }}
+    <!-- END_TF_DOCS -->
+
+settings:
+  anchor: true
+  color: true
+  default: true
+  escape: true
+  indent: 2
+  required: true
+  sensitive: true
+  type: true
+  read-comments: true
+  include: 
+    - "**/*.tofu"
