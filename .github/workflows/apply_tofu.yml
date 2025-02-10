@@ -44,6 +44,37 @@ jobs:
       run: |
         aws sts get-caller-identity >/dev/null && echo "✓ AWS accessible" || echo "✗ AWS not accessible"
 
+    - name: Run OpenTofu tests
+      id: tofu_test
+      run: |
+        cd tofu
+        echo "Running OpenTofu tests"
+        mkdir -p test-results
+        if ! tofu test -json | tee test-results/tofu.json; then
+          echo "❌ Tests failed"
+          exit 1
+        else
+          echo "✓ Tests passed"
+        fi
+
+    - name: Convert test results to JUnit format
+      if: always()
+      run: |
+        echo "Bodge while we await https://github.com/opentofu/opentofu/issues/2501"
+        cd tofu
+        jq -r '.[@] | select(.type=="test_run") | 
+          "<testcase name=\"\(.run)\" classname=\"tofu.tests\">
+            \(if .diagnostic.severity=="error" then 
+              "<failure message=\"\(.diagnostic.detail)\"></failure>" 
+            else "" end)
+          </testcase>"' test-results/tofu.json > test-results/junit.xml
+
+    - name: Publish Test Results
+      uses: EnricoMi/publish-unit-test-result-action@v2
+      if: always()
+      with:
+        files: "tofu/test-results/**/*.xml"
+
     - name: Do that OpenTofu that you do so well
       id: plan
       run: |
