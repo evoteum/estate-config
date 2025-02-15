@@ -17,7 +17,7 @@ resource "github_organization_settings" "main" {
   members_can_create_public_pages                              = true
   members_can_create_private_pages                             = true
   members_can_fork_private_repositories                        = true
-  web_commit_signoff_required                                  = true
+  web_commit_signoff_required                                  = false
   dependabot_alerts_enabled_for_new_repositories               = true
   dependabot_security_updates_enabled_for_new_repositories     = true
   dependency_graph_enabled_for_new_repositories                = true
