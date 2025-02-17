@@ -4,7 +4,6 @@ on:
   push:
     paths:
       - "tofu/**"
-      - .github/workflows/apply_tofu.yml
     branches:
       - main
 
@@ -47,14 +46,20 @@ jobs:
         aws sts get-caller-identity >/dev/null && echo "✓ AWS accessible" || echo "✗ AWS not accessible"
         aws s3 ls s3://${{ secrets.TOFU_STATE_BUCKET_NAME }} >/dev/null && echo "✓ S3 state bucket accessible" || (echo "✗ S3 state bucket not accessible" && exit 1)
 
+    - name: Initialize OpenTofu
+      id: tofu-init
+      run: |
+        cd tofu/development
+        tofu init \
+          -input=false \
+          -backend-config="bucket=${{ secrets.TOFU_STATE_BUCKET_NAME }}" \
+          -backend-config="key=${{ github.event.repository.name }}/development/tofu.tfstate" \
+          -backend-config="region=${{ vars.AWS_REGION }}"
+
     - name: Do that OpenTofu that you do so well
       id: plan
       run: |
-        cd tofu
-        echo "Initializing OpenTofu"
-        tofu init -backend-config="bucket=${{ secrets.TOFU_STATE_BUCKET_NAME }}"
-        echo "Verifying backend configuration"
-        tofu state list >/dev/null && echo "✓ State backend configured and accessible" || echo "✗ State backend not accessible"
+        cd tofu/development
         echo "Planning OpenTofu"
         tofu plan -input=false -out=tfplan | tee plan.txt
         echo "Showing OpenTofu plan"
@@ -68,7 +73,7 @@ jobs:
     - name: Apply OpenTofu configuration
       if: steps.plan.outputs.changes == 'true'
       run: |
-        cd tofu
+        cd tofu/development
         echo "Applying OpenTofu configuration"
         tofu apply tfplan
         
