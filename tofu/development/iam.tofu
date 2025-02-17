@@ -27,6 +27,7 @@ data "aws_iam_policy_document" "github_policy" {
       "dynamodb:ListTagsOfResource",
       "dynamodb:TagResource",
       "dynamodb:UpdateTable",
+      "iam:CreatePolicyVersion",
       "iam:CreateRole",
       "iam:DeletePolicyVersion",
       "iam:DeleteRole",
