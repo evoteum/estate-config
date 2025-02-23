@@ -126,7 +126,7 @@ is [free (libre) and open source](https://en.wikipedia.org/wiki/Free_and_open-so
 [//]: # (Must be less than 120 characters)
 [//]: # (Must match GitHub's description)
 
-Configuration for our estate
+Configuration for the estate
 
 [//]: # (Long Description)
 [//]: # (OPTIONAL)
