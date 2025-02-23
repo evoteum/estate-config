@@ -8,7 +8,7 @@
 [//]: # (Match repository name)
 [//]: # (REQUIRED)
 
-#  estate-config
+# estate-config
 
 [//]: # (Banner)
 [//]: # (OPTIONAL)
@@ -28,12 +28,17 @@
 [//]: # (Must be less than 120 characters)
 [//]: # (Must match GitHub's description)
 
-Configuration for our estate
+Configuration for the estate
 
 [//]: # (Long Description)
 [//]: # (OPTIONAL)
 [//]: # (Must not have its own title)
 [//]: # (A detailed description of the repo)
+
+
+
+[//]: # (Keep this note to help people understand how to configure this repo.)
+The configuration of this repo is managed by OpenTofu in [estate-repos](https://github.com/evoteum/estate-repos).
 
 ## Table of Contents
 
@@ -44,22 +49,22 @@ Configuration for our estate
 1. [Background](#background)
 1. [Install](#install)
 1. [Usage](#usage)
+1. [Any extra sections as required]
+1. [API](#api)
+1. [Maintainers](#maintainers)
+1. [Thanks](#thanks)
 1. [Contributing](#contributing)
 1. [License](#license)
 
-## Security
+[//]: # (## Security)
 [//]: # (OPTIONAL)
 [//]: # (May go here if it is important to highlight security concerns.)
 
-This repo is public and does not contain any sensitive information. All secrets are variables in the CI/CD pipeline.
 
-## Background
+
+[//]: # (## Background)
 [//]: # (OPTIONAL)
 [//]: # (Explain the motivation and abstract dependencies for this repo)
-
-Tofu that impacts everything is defined here. Avoid using this repo for project-specific infra or config.
-
-In the full spirit of FLOSS, we use OpenTofu and its preferred .tofu extension.
 
 ## Install
 
@@ -67,26 +72,50 @@ In the full spirit of FLOSS, we use OpenTofu and its preferred .tofu extension.
 [//]: # (OPTIONAL IF documentation repo)
 [//]: # (ELSE REQUIRED)
 
-No installation is required.
+
 
 ## Usage
 [//]: # (REQUIRED)
 [//]: # (Explain what the thing does. Use screenshots and/or videos.)
 
-Just Tofu here, really. Nothing super fun or exciting. Just tofu.
+
+
+[//]: # (Extra sections)
+[//]: # (OPTIONAL)
+[//]: # (This should not be called "Extra Sections".)
+[//]: # (This is a space for ≥0 sections to be included,)
+[//]: # (each of which must have their own titles.)
+
+
+
+[//]: # (## API)
+[//]: # (OPTIONAL)
+[//]: # (Describe exported functions and objects)
+
+
+
+[//]: # (## Maintainers)
+[//]: # (OPTIONAL)
+[//]: # (List maintainers for this repository)
+[//]: # (along with one way of contacting them - GitHub link or email.)
+
+
+
+[//]: # (## Thanks)
+[//]: # (OPTIONAL)
+[//]: # (State anyone or anything that significantly)
+[//]: # (helped with the development of this project)
+
+
 
 ## Contributing
 [//]: # (REQUIRED)
-
 If you need any help, please log an issue and one of our team will get back to you.
 
 PRs are welcome.
 
+
 ## License
 [//]: # (REQUIRED)
-All our code & software, including that in this repo,
-is [free (libre) and open source](https://en.wikipedia.org/wiki/Free_and_open-source_software).
 
-- The license is the  GNU Affero General Public License version 3.
-- The license owner is evoteum.
-- The full text of the license can be found in the [LICENSE](LICENSE) file.
+All our code is licenced under the AGPL-3.0. See [LICENSE](LICENSE) for more information.
