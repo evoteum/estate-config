@@ -6,8 +6,7 @@
 name: todo-to-issue
 
 on:
-  push:
-    
+
 
   
 
