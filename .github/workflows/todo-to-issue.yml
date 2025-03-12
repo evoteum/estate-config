@@ -6,6 +6,7 @@
 name: todo-to-issue
 
 on:
+  workflow_dispatch:
 
 
   
