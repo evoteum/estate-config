@@ -1,19 +1,19 @@
-
-resource "github_actions_organization_variable" "quay_url" {
-  value         = "https://${github_actions_organization_variable.quay_domain.value}"
-  variable_name = "QUAY_URL"
-  visibility    = "all"
+locals {
+  quay_domain = "quay.io"
+  org_variables = {
+    QUAY_URL    = "https://${local.quay_domain}"
+    QUAY_DOMAIN = local.quay_domain
+    FAIL_FAST   = true
+  }
 }
 
-resource "github_actions_organization_variable" "quay_domain" {
-  value         = "quay.io"
-  variable_name = "QUAY_DOMAIN"
-  visibility    = "all"
-}
 
-resource "github_actions_organization_variable" "fail_fast" {
-  value         = "true"
-  variable_name = "FAIL_FAST"
-  visibility    = "all"
-}
+module "github_variable" {
+  source   = "github.com/evoteum/tofu-modules//github/variable"
+  for_each = local.org_variables
 
+  sensitive = false
+  scope     = "organisation"
+  name      = each.key
+  value     = each.value
+}

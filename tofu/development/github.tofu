@@ -31,12 +31,6 @@ resource "github_actions_organization_secret" "tofu_state_bucket_name" {
   plaintext_value = local.state_bucket_name
 }
 
-resource "github_actions_organization_variable" "aws_region" {
-  value         = var.aws_region
-  variable_name = "AWS_REGION"
-  visibility    = "all"
-}
-
 resource "github_actions_organization_secret" "aws_role_to_assume" {
   secret_name     = "AWS_ROLE_TO_ASSUME"
   visibility      = "all"
@@ -49,14 +43,14 @@ resource "github_actions_organization_variable" "tofu_is_junit_compatible" {
   visibility    = "all"
 }
 
-resource "github_actions_organization_variable" "tofu_init_creates_remote_state" {
-  value         = local.tofu_init_creates_remote_state
-  variable_name = "TOFU_INIT_CREATES_REMOTE_STATE"
-  visibility    = "all"
-}
-
 resource "github_actions_organization_variable" "terraform_docs_is_tofu_compatible" {
   value         = local.terraform_docs_is_tofu_compatible
   variable_name = "TERRAFORM_DOCS_IS_TOFU_COMPATIBLE"
+  visibility    = "all"
+}
+
+resource "github_actions_organization_variable" "aws_region" {
+  value         = var.aws_region
+  variable_name = "AWS_REGION"
   visibility    = "all"
 }

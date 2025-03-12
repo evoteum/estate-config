@@ -4,6 +4,12 @@ variable "aws_region" {
   sensitive   = false
 }
 
+variable "cloudflare_account_id" {
+  type        = string
+  description = "Cloudflare Account ID"
+  sensitive   = true
+}
+
 variable "oidc_audience" {
   type        = string
   description = "Audience for the OIDC provider"
