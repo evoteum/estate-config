@@ -10,7 +10,7 @@ on:
 
   
   schedule:
-    - cron: "0 1 * * *"  # Every day at 1 AM
+    - cron: "0 23 * * *"  # Every day at 11 PM
   
 
 
