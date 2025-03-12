@@ -3,9 +3,7 @@ name: apply_tofu
 on:
   push:
     paths:
-      - "tofu/**"
-    branches:
-      - main
+      - "disabled"
 
 permissions:
   id-token: write

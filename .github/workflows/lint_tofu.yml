@@ -4,9 +4,7 @@ name: lint_tofu
 on:
   push:
     paths:
-      - "tofu/variables.tofu"
-    branches:
-      - main
+      - "disabled"
 
 jobs:
   tfsort:
