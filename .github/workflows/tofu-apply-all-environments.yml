@@ -6,16 +6,13 @@
 name: tofu-apply-all-environments
 
 on:
-
-
-  
+  workflow_dispatch:
+  push:
+    paths:
+      - "*/**"
   schedule:
-    - cron: "0 1 * * *"  # Every day at 1 AM
-  
-
-
+    - cron: "0 23 * * *"  # Every day at 11 PM
 
 jobs:
   call-tofu-apply-all-environments:
     uses: evoteum/estate-reusable-workflows/.github/workflows/tofu-apply-all-environments.yml@main
-    
