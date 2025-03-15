@@ -8,6 +8,10 @@ name: todo-to-issue
 on:
   workflow_dispatch:
 
+permissions:
+  contents: read
+  issues: write
+
 jobs:
   call-todo-to-issue:
     uses: evoteum/estate-reusable-workflows/.github/workflows/todo-to-issue.yml@main
