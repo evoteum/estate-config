@@ -26,6 +26,6 @@ provider "aws" {
 }
 
 provider "github" {
-  owner = var.org_name
+  owner = var.organisation
   app_auth {} # When using `GITHUB_APP_XXX` environment variables
 }

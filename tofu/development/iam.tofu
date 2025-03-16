@@ -95,7 +95,7 @@ data "aws_iam_policy_document" "github_allow" {
     condition {
       test     = "StringLike"
       variable = "token.actions.githubusercontent.com:sub"
-      values   = ["repo:${var.org_name}/*"]
+      values   = ["repo:${var.organisation}/*"]
     }
   }
 }

@@ -1,11 +1,11 @@
 resource "github_organization_settings" "main" {
   billing_email                                                = "billing@${local.website}"
-  company                                                      = var.org_name
+  company                                                      = var.organisation
   blog                                                         = "https://${local.website}"
   email                                                        = "sup@${local.website}"
   twitter_username                                             = null
   location                                                     = "Earth"
-  name                                                         = var.org_name
+  name                                                         = var.organisation
   description                                                  = var.org_slogan
   has_organization_projects                                    = true
   has_repository_projects                                      = true
