@@ -1,6 +1,8 @@
 locals {
   quay_domain = "quay.io"
   org_variables = {
+    QUAY_URL    = "https://${local.quay_domain}"
+    QUAY_DOMAIN = local.quay_domain
     FAIL_FAST   = true
   }
 }
