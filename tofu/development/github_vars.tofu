@@ -1,9 +1,14 @@
 locals {
   quay_domain = "quay.io"
   org_variables = {
-    QUAY_URL    = "https://${local.quay_domain}"
-    QUAY_DOMAIN = local.quay_domain
+    APP_NAME    = "app"
+    BUILD_FLAGS = ""
     FAIL_FAST   = true
+    LANGUAGE_VERSION = ""
+    QUAY_DOMAIN = local.quay_domain
+    QUAY_URL    = "https://${local.quay_domain}"
+    TARGET_ARCH = "amd64"
+    TARGET_OS   = "linux"
   }
 }
 
