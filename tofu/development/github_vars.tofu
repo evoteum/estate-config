@@ -4,7 +4,7 @@ locals {
     APP_NAME    = "app"
     BUILD_FLAGS = "--pull=missing"
     FAIL_FAST   = true
-    LANGUAGE_VERSION = "0.0.0"
+    LANGUAGE_VERSION = "Set this in estate-repos/repos.yml"
     QUAY_DOMAIN = local.quay_domain
     QUAY_URL    = "https://${local.quay_domain}"
     TARGET_ARCH = "amd64"
