@@ -2,7 +2,7 @@ locals {
   quay_domain = "quay.io"
   org_variables = {
     APP_NAME    = "app"
-    BUILD_FLAGS = "--pull=missing"
+    BUILD_FLAGS = "NONE"
     FAIL_FAST   = true
     LANGUAGE_VERSION = "Set this in estate-repos/repos.yml"
     QUAY_DOMAIN = local.quay_domain
