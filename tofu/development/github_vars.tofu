@@ -1,17 +1,21 @@
 locals {
   quay_domain = "quay.io"
   org_variables = {
-    APP_NAME    = "app"
-    BUILD_FLAGS = "NONE"
-    FAIL_FAST   = true
+    APP_NAME         = "app"
+    BUILD_FLAGS      = "NONE"
+    FAIL_FAST        = true
     LANGUAGE_VERSION = "Set this in estate-repos/repos.yml"
-    QUAY_DOMAIN = local.quay_domain
-    QUAY_URL    = "https://${local.quay_domain}"
-    TARGET_ARCH = "amd64"
-    TARGET_OS   = "linux"
+    QUAY_DOMAIN      = local.quay_domain
+    QUAY_URL         = "https://${local.quay_domain}"
+    TARGET_ARCH      = "amd64"
+    TARGET_OS        = "linux"
+    PERMITTED_ENVIRONMENTS = [
+      "development",
+      "staging",
+      "production",
+    ]
   }
 }
-
 
 module "github_variable" {
   source   = "github.com/evoteum/tofu-modules//github/variable"
