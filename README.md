@@ -35,10 +35,22 @@ Configuration for the estate
 [//]: # (Must not have its own title)
 [//]: # (A detailed description of the repo)
 
-This is for the configuration of resources that are shared across the estate.
+This is the configuration of resources that are shared across the estate.
+
+As a continuous delivery organisation, most of our projects define only a single `production` environment. This ensures that changes are delivered rapidly and confidently to live systems, without requiring long-running staging environments or traditional dev/prod splits.
+
+Where multiple environments are used, the common convention is for each to be a mirror of production, differing only in data, scale, or access. That is not the approach taken here.
+
+In this project, the environments reflect how the resources are used, not how closely they resemble production:
+- The development environment supports CI/CD and internal tooling. If it breaks, you might delay development, but production will continue to run.
+- The production environment contains shared infrastructure relied on by production systems across the estate. If you break this, the impact is real and immediate.
+
+Treat the production environment with care. This is not a sandbox. Here be dragons. 🐉
+
 
 [//]: # (Keep this note to help people understand how to configure this repo.)
 The configuration of this repo is managed by OpenTofu in [estate-repos](https://github.com/evoteum/estate-repos).
+
 
 
 ## Table of Contents
