@@ -1,4 +1,4 @@
-test "connection is created with expected name and provider" {
+run "connection is created with expected name and provider" {
   command = plan
 
   assert {
@@ -12,7 +12,7 @@ test "connection is created with expected name and provider" {
   }
 }
 
-test "connection status is AVAILABLE" {
+run "connection status is AVAILABLE" {
   command = apply
 
   assert {
