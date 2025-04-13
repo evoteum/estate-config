@@ -23,14 +23,7 @@ terraform {
 
 provider "aws" {
   region = var.aws_region
-  default_tags {
-    tags = {
-      Environment     = local.environment
-      Project         = var.repository_name
-      OpenTofuManaged = "true"
-      RepositoryURL   = var.repository_url
-    }
-  }
+
 }
 
 provider "github" {
