@@ -7,6 +7,7 @@ data "aws_iam_policy_document" "github_policy" {
   statement {
     actions = [
       # Principle of least privilege: Only the specific actions required are allowed, so we avoid *.
+      "apprunner:CreateConnection",
       "apprunner:CreateService",
       "apprunner:DeleteService",
       "apprunner:DescribeService",
