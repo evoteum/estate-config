@@ -11,6 +11,7 @@ data "aws_iam_policy_document" "github_policy" {
       "apprunner:CreateService",
       "apprunner:DeleteService",
       "apprunner:DescribeService",
+      "apprunner:ListConnections",
       "apprunner:ListServices",
       "apprunner:TagResource",
       "apprunner:UpdateService",
