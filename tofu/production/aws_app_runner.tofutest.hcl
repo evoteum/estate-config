@@ -1,4 +1,4 @@
-run "connection is created with expected name and provider" {
+run "connection_is_created_with_expected_name_and_provider" {
   command = plan
 
   assert {
