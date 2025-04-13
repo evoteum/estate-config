@@ -13,6 +13,7 @@ data "aws_iam_policy_document" "github_policy" {
       "apprunner:DescribeService",
       "apprunner:ListConnections",
       "apprunner:ListServices",
+      "apprunner:ListTagsForResource",
       "apprunner:TagResource",
       "apprunner:UpdateService",
       "cloudfront:CreateDistribution",
