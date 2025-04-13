@@ -16,12 +16,6 @@ variable "oidc_audience" {
   default     = "sts.amazonaws.com"
 }
 
-variable "organisation" {
-  type        = string
-  description = "The name of the organisation."
-  sensitive   = false
-}
-
 variable "org_slogan" {
   type        = string
   description = "The slogan of the organisation."
@@ -29,8 +23,19 @@ variable "org_slogan" {
   default     = "Innovation Evolution"
 }
 
+variable "organisation" {
+  type        = string
+  description = "The name of the organisation."
+  sensitive   = false
+}
+
 variable "repository_name" {
   type        = string
   description = "The name of the repository."
   sensitive   = false
+}
+
+variable "repository_url" {
+  type        = string
+  description = "The HTML URL of this repository"
 }

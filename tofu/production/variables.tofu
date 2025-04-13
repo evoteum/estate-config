@@ -4,16 +4,11 @@ variable "aws_region" {
   sensitive   = false
 }
 
-variable "cloudflare_account_id" {
+variable "org_slogan" {
   type        = string
-  description = "Cloudflare Account ID"
-  sensitive   = true
-}
-
-variable "oidc_audience" {
-  type        = string
-  description = "Audience for the OIDC provider"
-  default     = "sts.amazonaws.com"
+  description = "The slogan of the organisation."
+  sensitive   = false
+  default     = "Innovation Evolution"
 }
 
 variable "organisation" {
@@ -22,15 +17,13 @@ variable "organisation" {
   sensitive   = false
 }
 
-variable "org_slogan" {
-  type        = string
-  description = "The slogan of the organisation."
-  sensitive   = false
-  default     = "Innovation Evolution"
-}
-
 variable "repository_name" {
   type        = string
   description = "The name of the repository."
   sensitive   = false
+}
+
+variable "repository_url" {
+  type        = string
+  description = "The HTML URL of this repository"
 }
