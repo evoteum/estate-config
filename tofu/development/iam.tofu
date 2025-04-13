@@ -47,6 +47,7 @@ data "aws_iam_policy_document" "github_policy" {
       "iam:PutRolePolicy",
       "iam:TagOpenIDConnectProvider",
       "iam:TagPolicy",
+      "iam:TagRole",
       "s3:CreateBucket",
       "s3:DeleteBucket",
       "s3:DeleteObject",
