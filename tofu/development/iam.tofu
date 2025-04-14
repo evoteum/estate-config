@@ -16,6 +16,7 @@ data "aws_iam_policy_document" "github_policy" {
       "apprunner:ListServices",
       "apprunner:ListTagsForResource",
       "apprunner:TagResource",
+      "apprunner:UntagResource",
       "apprunner:UpdateService",
       "cloudfront:CreateDistribution",
       "cloudfront:CreateFunction",
