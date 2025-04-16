@@ -30,6 +30,7 @@ data "aws_iam_policy_document" "github_policy" {
       "dynamodb:DeleteTable",
       "dynamodb:DescribeContinuousBackups",
       "dynamodb:DescribeTable",
+      "dynamodb:DescribeTimeToLive",
       "dynamodb:ListTagsOfResource",
       "dynamodb:TagResource",
       "dynamodb:UpdateTable",
