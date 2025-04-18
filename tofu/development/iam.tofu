@@ -12,6 +12,7 @@ data "aws_iam_policy_document" "github_policy" {
       "apprunner:CreateService",
       "apprunner:DeleteConnection",
       "apprunner:DeleteService",
+      "apprunner:DescribeCustomDomains",
       "apprunner:DescribeService",
       "apprunner:ListConnections",
       "apprunner:ListServices",
