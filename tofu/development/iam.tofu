@@ -45,6 +45,7 @@ data "aws_iam_policy_document" "github_policy" {
       "iam:DeletePolicyVersion",
       "iam:DeleteRole",
       "iam:DeleteRolePolicy",
+      "iam:DetachRolePolicy",
       "iam:GetOpenIDConnectProvider",
       "iam:GetPolicy",
       "iam:GetPolicyVersion",
