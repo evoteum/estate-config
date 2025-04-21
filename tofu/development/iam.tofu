@@ -64,6 +64,7 @@ data "aws_iam_policy_document" "github_policy" {
       "iam:UntagOpenIDConnectProvider",
       "iam:UntagPolicy",
       "iam:UntagRole",
+      "iam:UpdateAssumeRolePolicy",
       "s3:CreateBucket",
       "s3:DeleteBucket",
       "s3:DeleteObject",
@@ -126,3 +127,4 @@ resource "aws_iam_role_policy_attachment" "attach_github_role" {
   role       = aws_iam_role.github_role.name
   policy_arn = aws_iam_policy.github_role_policy.arn
 }
+
