@@ -37,6 +37,7 @@ data "aws_iam_policy_document" "github_policy" {
       "dynamodb:ListTagsOfResource",
       "dynamodb:TagResource",
       "dynamodb:UpdateTable",
+      "ec2:DescribeAvailabilityZones",
       "iam:AttachRolePolicy",
       "iam:CreatePolicy",
       "iam:CreatePolicyVersion",
