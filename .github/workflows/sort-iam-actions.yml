@@ -15,13 +15,14 @@ jobs:
       - name: Install yq
         run: |
           if which yq; then
+            echo "yq is already installed"
             exit 0
           fi
           sudo add-apt-repository -y ppa:rmescandon/yq
           sudo apt update
           sudo apt install -y yq
 
-      - name: Sort actions
+      - name: Sort & deduplicate actions
         run: |
           yq eval '.actions = (.actions | sort | unique)' -i tofu/development/iam_actions.yml
 
