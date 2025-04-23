@@ -30,6 +30,8 @@ actions:
   - dynamodb:ListTagsOfResource
   - dynamodb:TagResource
   - dynamodb:UpdateTable
+  - ec2:CreateInternetGateway
+  - ec2:CreateSubnet
   - ec2:CreateTags
   - ec2:CreateVpc
   - ec2:DeleteVpc
@@ -99,5 +101,3 @@ actions:
   - s3:PutObjectAcl
   - s3:PutObjectVersionAcl
   - sts:GetCallerIdentity
-  - ec2:CreateInternetGateway
-  - ec2:CreateSubnet
