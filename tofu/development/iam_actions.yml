@@ -38,6 +38,8 @@ actions:
   - ec2:DescribeVpcs
   - ecs:CreateCluster
   - ecs:DeleteCluster
+  - ec2:ModifyVpcAttribute
+  - ecs:PutClusterCapacityProviders
   - ecs:DescribeClusters
   - ecs:TagResource
   - iam:AttachRolePolicy
