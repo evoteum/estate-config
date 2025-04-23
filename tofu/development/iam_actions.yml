@@ -20,10 +20,10 @@ actions:
   - iam:ListRolePolicies
   - iam:PassRole
   - iam:PutRolePolicy
+  - iam:UntagOpenIDConnectProvider
   - iam:TagOpenIDConnectProvider
   - iam:TagPolicy
   - iam:TagRole
-  - iam:UntagOpenIDConnectProvider
   - iam:UntagOpenIDConnectProvider
   - iam:GetRolePolicy
   - iam:ListAttachedRolePolicies
