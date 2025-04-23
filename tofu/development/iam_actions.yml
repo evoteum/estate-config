@@ -28,6 +28,7 @@ actions:
   - dynamodb:DescribeTable
   - dynamodb:DescribeTimeToLive
   - dynamodb:ListTagsOfResource
+  - ec2:DescribeVpcAttribute
   - dynamodb:TagResource
   - dynamodb:UpdateTable
   - ec2:CreateTags
