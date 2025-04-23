@@ -10,11 +10,6 @@ actions:
   - apprunner:DisassociateCustomDomain
   - apprunner:ListConnections
   - apprunner:ListServices
-  - ecs:DescribeClusters
-  - ecs:TagResource
-  - iam:AttachRolePolicy
-  - iam:CreatePolicy
-  - iam:CreatePolicyVersion
   - apprunner:ListTagsForResource
   - apprunner:TagResource
   - apprunner:UntagResource
@@ -23,17 +18,6 @@ actions:
   - cloudfront:CreateFunction
   - cloudfront:DeleteDistribution
   - cloudfront:DeleteFunction
-  - s3:ListAllMyBuckets
-  - s3:ListBucket
-  - s3:PutBucketPolicy
-  - s3:PutBucketTagging
-  - s3:PutBucketVersioning
-  - s3:PutBucketWebsite
-  - s3:PutEncryptionConfiguration
-  - s3:PutObject
-  - s3:PutObjectAcl
-  - s3:PutObjectVersionAcl
-  - sts:GetCallerIdentity
   - cloudfront:GetDistribution
   - cloudfront:TagResource
   - cloudfront:UpdateDistribution
@@ -51,6 +35,11 @@ actions:
   - ec2:DescribeAvailabilityZones
   - ec2:DescribeVpcs
   - ecs:CreateCluster
+  - ecs:DescribeClusters
+  - ecs:TagResource
+  - iam:AttachRolePolicy
+  - iam:CreatePolicy
+  - iam:CreatePolicyVersion
   - iam:CreateRole
   - iam:CreateServiceLinkedRole
   - iam:DeletePolicy
@@ -94,3 +83,14 @@ actions:
   - s3:GetLifecycleConfiguration
   - s3:GetObject
   - s3:GetReplicationConfiguration
+  - s3:ListAllMyBuckets
+  - s3:ListBucket
+  - s3:PutBucketPolicy
+  - s3:PutBucketTagging
+  - s3:PutBucketVersioning
+  - s3:PutBucketWebsite
+  - s3:PutEncryptionConfiguration
+  - s3:PutObject
+  - s3:PutObjectAcl
+  - s3:PutObjectVersionAcl
+  - sts:GetCallerIdentity
