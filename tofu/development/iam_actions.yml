@@ -106,3 +106,5 @@ actions:
   - s3:PutObjectAcl
   - s3:PutObjectVersionAcl
   - sts:GetCallerIdentity
+  - ec2:CreateRouteTable
+  - ec2:DeleteSubnet
