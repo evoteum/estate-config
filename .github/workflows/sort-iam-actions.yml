@@ -23,7 +23,7 @@ jobs:
 
       - name: Sort actions
         run: |
-          yq eval '.actions |= sort | unique' tofu/development/iam_actions.yml -i
+          yq eval '.actions = (.actions | sort | unique)' -i tofu/development/actions.yml
 
       - name: Commit changes
         run: |
