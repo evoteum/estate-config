@@ -1,13 +1,5 @@
 ---
 actions:
-  - s3:PutBucketWebsite
-  - s3:PutEncryptionConfiguration
-  - s3:PutObject
-  - s3:PutObjectAcl
-  - s3:PutObjectVersionAcl
-  - sts:GetCallerIdentity
-  - sts:GetCallerIdentity
-  - sts:GetCallerIdentity
   - apprunner:AssociateCustomDomain
   - apprunner:CreateConnection
   - apprunner:CreateService
@@ -50,12 +42,6 @@ actions:
   - iam:CreatePolicyVersion
   - iam:CreateRole
   - iam:CreateServiceLinkedRole
-  - s3:PutBucketWebsite
-  - s3:PutEncryptionConfiguration
-  - s3:PutObject
-  - s3:PutObjectAcl
-  - s3:PutObjectVersionAcl
-  - sts:GetCallerIdentity
   - iam:DeletePolicy
   - iam:DeletePolicyVersion
   - iam:DeleteRole
@@ -102,3 +88,9 @@ actions:
   - s3:PutBucketPolicy
   - s3:PutBucketTagging
   - s3:PutBucketVersioning
+  - s3:PutBucketWebsite
+  - s3:PutEncryptionConfiguration
+  - s3:PutObject
+  - s3:PutObjectAcl
+  - s3:PutObjectVersionAcl
+  - sts:GetCallerIdentity
