@@ -37,6 +37,7 @@ actions:
   - ec2:CreateTags
   - ec2:CreateVpc
   - ec2:DeleteInternetGateway
+  - ec2:DeleteRouteTable
   - ec2:DeleteSubnet
   - ec2:DeleteVpc
   - ec2:DescribeAvailabilityZones
@@ -109,4 +110,3 @@ actions:
   - s3:PutObjectAcl
   - s3:PutObjectVersionAcl
   - sts:GetCallerIdentity
-  - ec2:DeleteRouteTable
