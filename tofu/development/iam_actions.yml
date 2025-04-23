@@ -24,6 +24,7 @@ actions:
   - iam:TagPolicy
   - iam:TagRole
   - iam:UntagOpenIDConnectProvider
+  - iam:UntagOpenIDConnectProvider
   - iam:GetRolePolicy
   - iam:ListAttachedRolePolicies
   - iam:ListInstanceProfilesForRole
@@ -34,7 +35,6 @@ actions:
   - iam:TagOpenIDConnectProvider
   - iam:TagPolicy
   - iam:TagRole
-  - iam:UntagOpenIDConnectProvider
   - apprunner:UpdateService
   - cloudfront:CreateDistribution
   - cloudfront:CreateFunction
