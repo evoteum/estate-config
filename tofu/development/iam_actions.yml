@@ -10,6 +10,11 @@ actions:
   - apprunner:DisassociateCustomDomain
   - apprunner:ListConnections
   - apprunner:ListServices
+  - ecs:DescribeClusters
+  - ecs:TagResource
+  - iam:AttachRolePolicy
+  - iam:CreatePolicy
+  - iam:CreatePolicyVersion
   - apprunner:ListTagsForResource
   - apprunner:TagResource
   - apprunner:UntagResource
@@ -46,11 +51,6 @@ actions:
   - ec2:DescribeAvailabilityZones
   - ec2:DescribeVpcs
   - ecs:CreateCluster
-  - ecs:DescribeClusters
-  - ecs:TagResource
-  - iam:AttachRolePolicy
-  - iam:CreatePolicy
-  - iam:CreatePolicyVersion
   - iam:CreateRole
   - iam:CreateServiceLinkedRole
   - iam:DeletePolicy
