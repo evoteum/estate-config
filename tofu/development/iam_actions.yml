@@ -2,6 +2,7 @@
 actions:
   - acm:AddTagsToCertificate
   - acm:DescribeCertificate
+  - acm:ListTagsForCertificate
   - acm:RequestCertificate
   - apprunner:AssociateCustomDomain
   - apprunner:CreateConnection
@@ -115,4 +116,3 @@ actions:
   - s3:PutObjectAcl
   - s3:PutObjectVersionAcl
   - sts:GetCallerIdentity
-  - acm:ListTagsForCertificate
