@@ -1,0 +1,36 @@
+name: sort-iam-actions
+
+
+on:
+  push:
+    paths:
+      - tofu/development/actions.yml
+
+jobs:
+  sort-actions:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install yq
+        run: |
+          if which yq; then
+            exit 0
+          fi
+          sudo add-apt-repository -y ppa:rmescandon/yq
+          sudo apt update
+          sudo apt install -y yq
+
+      - name: Sort actions
+        run: |
+          yq eval '.actions |= sort' tofu/development/actions.yml -i
+
+      - name: Commit changes
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add tofu/development/actions.yml
+          if ! git diff --cached --quiet; then
+            git commit -m "Auto-sorted actions list"
+            git push
+          fi

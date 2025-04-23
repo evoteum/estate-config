@@ -20,4 +20,8 @@ locals {
     TERRAFORM_DOCS_IS_TOFU_COMPATIBLE = local.terraform_docs_is_tofu_compatible
   }
   environment = basename(abspath(path.module))
+  iam_actions_yml = yamldecode(data.local_file.iam_actions.content).actions
+  iam_actions = local.iam_actions_yml.actions
 }
+
+
