@@ -36,7 +36,9 @@ actions:
   - ec2:DescribeVpcAttribute
   - ec2:DescribeVpcs
   - ecs:CreateCluster
+  - ecs:DeleteCluster
   - ecs:DescribeClusters
+  - ec2:DeleteVpc
   - ecs:TagResource
   - iam:AttachRolePolicy
   - iam:CreatePolicy
