@@ -42,6 +42,7 @@ actions:
   - ec2:DescribeAvailabilityZones
   - ec2:DescribeInternetGateways
   - ec2:DescribeNetworkInterfaces
+  - ec2:DescribeRouteTables
   - ec2:DescribeSubnets
   - ec2:DescribeVpcAttribute
   - ec2:DescribeVpcs
@@ -108,4 +109,3 @@ actions:
   - s3:PutObjectAcl
   - s3:PutObjectVersionAcl
   - sts:GetCallerIdentity
-  - ec2:DescribeRouteTables
