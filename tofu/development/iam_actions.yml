@@ -36,11 +36,11 @@ actions:
   - ec2:DescribeAvailabilityZones
   - ec2:DescribeVpcAttribute
   - ec2:DescribeVpcs
+  - ec2:ModifyVpcAttribute
   - ecs:CreateCluster
   - ecs:DeleteCluster
-  - ec2:ModifyVpcAttribute
-  - ecs:PutClusterCapacityProviders
   - ecs:DescribeClusters
+  - ecs:PutClusterCapacityProviders
   - ecs:TagResource
   - iam:AttachRolePolicy
   - iam:CreatePolicy
