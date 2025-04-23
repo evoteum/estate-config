@@ -13,6 +13,28 @@ actions:
   - apprunner:ListTagsForResource
   - apprunner:TagResource
   - apprunner:UntagResource
+  - iam:GetRolePolicy
+  - iam:ListAttachedRolePolicies
+  - iam:ListInstanceProfilesForRole
+  - iam:ListPolicyVersions
+  - iam:ListRolePolicies
+  - iam:PassRole
+  - iam:PutRolePolicy
+  - iam:TagOpenIDConnectProvider
+  - iam:TagPolicy
+  - iam:TagRole
+  - iam:UntagOpenIDConnectProvider
+  - iam:GetRolePolicy
+  - iam:ListAttachedRolePolicies
+  - iam:ListInstanceProfilesForRole
+  - iam:ListPolicyVersions
+  - iam:ListRolePolicies
+  - iam:PassRole
+  - iam:PutRolePolicy
+  - iam:TagOpenIDConnectProvider
+  - iam:TagPolicy
+  - iam:TagRole
+  - iam:UntagOpenIDConnectProvider
   - apprunner:UpdateService
   - cloudfront:CreateDistribution
   - cloudfront:CreateFunction
@@ -51,17 +73,6 @@ actions:
   - iam:GetPolicy
   - iam:GetPolicyVersion
   - iam:GetRole
-  - iam:GetRolePolicy
-  - iam:ListAttachedRolePolicies
-  - iam:ListInstanceProfilesForRole
-  - iam:ListPolicyVersions
-  - iam:ListRolePolicies
-  - iam:PassRole
-  - iam:PutRolePolicy
-  - iam:TagOpenIDConnectProvider
-  - iam:TagPolicy
-  - iam:TagRole
-  - iam:UntagOpenIDConnectProvider
   - iam:UntagPolicy
   - iam:UntagRole
   - iam:UpdateAssumeRolePolicy
