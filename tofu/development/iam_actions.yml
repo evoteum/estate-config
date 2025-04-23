@@ -1,5 +1,6 @@
 ---
 actions:
+  - acm:RequestCertificate
   - apprunner:AssociateCustomDomain
   - apprunner:CreateConnection
   - apprunner:CreateService
@@ -112,4 +113,3 @@ actions:
   - s3:PutObjectAcl
   - s3:PutObjectVersionAcl
   - sts:GetCallerIdentity
-  - acm:RequestCertificate
