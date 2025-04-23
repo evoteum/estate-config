@@ -30,6 +30,7 @@ actions:
   - dynamodb:ListTagsOfResource
   - dynamodb:TagResource
   - dynamodb:UpdateTable
+  - ec2:AssociateRouteTable
   - ec2:AttachInternetGateway
   - ec2:CreateInternetGateway
   - ec2:CreateRoute
@@ -111,4 +112,3 @@ actions:
   - s3:PutObjectAcl
   - s3:PutObjectVersionAcl
   - sts:GetCallerIdentity
-  - ec2:AssociateRouteTable
