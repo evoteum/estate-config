@@ -4,7 +4,7 @@ name: sort-iam-actions
 on:
   push:
     paths:
-      - tofu/development/actions.yml
+      - tofu/development/iam_actions.yml
 
 jobs:
   sort-actions:
@@ -23,13 +23,13 @@ jobs:
 
       - name: Sort actions
         run: |
-          yq eval '.actions |= sort' tofu/development/actions.yml -i
+          yq eval '.actions |= sort' tofu/development/iam_actions.yml -i
 
       - name: Commit changes
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add tofu/development/actions.yml
+          git add tofu/development/iam_actions.yml
           if ! git diff --cached --quiet; then
             git commit -m "Auto-sorted actions list"
             git push
