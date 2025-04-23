@@ -32,6 +32,7 @@ actions:
   - dynamodb:UpdateTable
   - ec2:AttachInternetGateway
   - ec2:CreateInternetGateway
+  - ec2:CreateRoute
   - ec2:CreateRouteTable
   - ec2:CreateSubnet
   - ec2:CreateTags
@@ -110,4 +111,3 @@ actions:
   - s3:PutObjectAcl
   - s3:PutObjectVersionAcl
   - sts:GetCallerIdentity
-  - ec2:CreateRoute
