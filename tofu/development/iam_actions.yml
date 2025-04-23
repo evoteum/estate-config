@@ -1,6 +1,7 @@
 ---
 actions:
   - acm:AddTagsToCertificate
+  - acm:DeleteCertificate
   - acm:DescribeCertificate
   - acm:ListTagsForCertificate
   - acm:RequestCertificate
@@ -116,4 +117,3 @@ actions:
   - s3:PutObjectAcl
   - s3:PutObjectVersionAcl
   - sts:GetCallerIdentity
-  - acm:DeleteCertificate
