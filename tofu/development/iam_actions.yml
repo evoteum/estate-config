@@ -70,6 +70,7 @@ actions:
   - ecs:TagResource
   - elasticloadbalancing:AddTags
   - elasticloadbalancing:CreateLoadBalancer
+  - elasticloadbalancing:DeleteLoadBalancer
   - elasticloadbalancing:DescribeLoadBalancerAttributes
   - elasticloadbalancing:DescribeLoadBalancers
   - elasticloadbalancing:DescribeTags
@@ -131,4 +132,3 @@ actions:
   - s3:PutObjectAcl
   - s3:PutObjectVersionAcl
   - sts:GetCallerIdentity
-  - elasticloadbalancing:DeleteLoadBalancer
