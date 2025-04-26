@@ -58,6 +58,7 @@ actions:
   - ec2:DescribeVpcAttribute
   - ec2:DescribeVpcs
   - ec2:ModifyVpcAttribute
+  - ec2:RevokeSecurityGroupEgress
   - ecs:CreateCluster
   - ecs:DeleteCluster
   - ecs:DescribeClusters
@@ -120,4 +121,3 @@ actions:
   - s3:PutObjectAcl
   - s3:PutObjectVersionAcl
   - sts:GetCallerIdentity
-  - ec2:RevokeSecurityGroupEgress
