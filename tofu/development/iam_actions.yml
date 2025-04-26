@@ -37,6 +37,8 @@ actions:
   - dynamodb:UpdateTable
   - ec2:AssociateRouteTable
   - ec2:AttachInternetGateway
+  - ec2:AuthorizeSecurityGroupEgress
+  - ec2:AuthorizeSecurityGroupIngress
   - ec2:CreateInternetGateway
   - ec2:CreateRoute
   - ec2:CreateRouteTable
@@ -64,6 +66,7 @@ actions:
   - ecs:DescribeClusters
   - ecs:PutClusterCapacityProviders
   - ecs:TagResource
+  - elasticloadbalancing:DescribeLoadBalancers
   - iam:AttachRolePolicy
   - iam:CreatePolicy
   - iam:CreatePolicyVersion
@@ -121,6 +124,3 @@ actions:
   - s3:PutObjectAcl
   - s3:PutObjectVersionAcl
   - sts:GetCallerIdentity
-  - ec2:AuthorizeSecurityGroupEgress
-  - ec2:AuthorizeSecurityGroupIngress
-  - elasticloadbalancing:DescribeLoadBalancers
