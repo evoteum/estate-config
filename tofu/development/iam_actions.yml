@@ -51,6 +51,7 @@ actions:
   - ec2:DeleteSecurityGroup
   - ec2:DeleteSubnet
   - ec2:DeleteVpc
+  - ec2:DescribeAccountAttributes
   - ec2:DescribeAvailabilityZones
   - ec2:DescribeInternetGateways
   - ec2:DescribeNetworkInterfaces
@@ -127,4 +128,3 @@ actions:
   - s3:PutObjectAcl
   - s3:PutObjectVersionAcl
   - sts:GetCallerIdentity
-  - ec2:DescribeAccountAttributes
