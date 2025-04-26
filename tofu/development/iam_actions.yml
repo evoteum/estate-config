@@ -72,6 +72,7 @@ actions:
   - elasticloadbalancing:CreateLoadBalancer
   - elasticloadbalancing:DescribeLoadBalancerAttributes
   - elasticloadbalancing:DescribeLoadBalancers
+  - elasticloadbalancing:DescribeTags
   - elasticloadbalancing:ModifyLoadBalancerAttributes
   - iam:AttachRolePolicy
   - iam:CreatePolicy
@@ -130,4 +131,3 @@ actions:
   - s3:PutObjectAcl
   - s3:PutObjectVersionAcl
   - sts:GetCallerIdentity
-  - elasticloadbalancing:DescribeTags
