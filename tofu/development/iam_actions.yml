@@ -69,6 +69,7 @@ actions:
   - ecs:PutClusterCapacityProviders
   - ecs:TagResource
   - elasticloadbalancing:AddTags
+  - elasticloadbalancing:CreateListener
   - elasticloadbalancing:CreateLoadBalancer
   - elasticloadbalancing:DeleteLoadBalancer
   - elasticloadbalancing:DescribeLoadBalancerAttributes
@@ -132,4 +133,3 @@ actions:
   - s3:PutObjectAcl
   - s3:PutObjectVersionAcl
   - sts:GetCallerIdentity
-  - elasticloadbalancing:CreateListener
