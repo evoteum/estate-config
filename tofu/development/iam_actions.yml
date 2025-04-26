@@ -67,6 +67,7 @@ actions:
   - ecs:DescribeClusters
   - ecs:PutClusterCapacityProviders
   - ecs:TagResource
+  - elasticloadbalancing:AddTags
   - elasticloadbalancing:CreateLoadBalancer
   - elasticloadbalancing:DescribeLoadBalancers
   - iam:AttachRolePolicy
@@ -126,4 +127,3 @@ actions:
   - s3:PutObjectAcl
   - s3:PutObjectVersionAcl
   - sts:GetCallerIdentity
-  - elasticloadbalancing:AddTags
