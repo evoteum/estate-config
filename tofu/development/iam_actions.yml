@@ -61,6 +61,7 @@ actions:
   - ec2:DescribeSubnets
   - ec2:DescribeVpcAttribute
   - ec2:DescribeVpcs
+  - ec2:DetachInternetGateway
   - ec2:DisassociateRouteTable
   - ec2:ModifyVpcAttribute
   - ec2:RevokeSecurityGroupEgress
@@ -139,4 +140,3 @@ actions:
   - s3:PutObjectAcl
   - s3:PutObjectVersionAcl
   - sts:GetCallerIdentity
-  - ec2:DetachInternetGateway
