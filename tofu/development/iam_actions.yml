@@ -61,8 +61,10 @@ actions:
   - ec2:DescribeSubnets
   - ec2:DescribeVpcAttribute
   - ec2:DescribeVpcs
+  - ec2:DisassociateRouteTable
   - ec2:ModifyVpcAttribute
   - ec2:RevokeSecurityGroupEgress
+  - ec2:RevokeSecurityGroupIngress
   - ecs:CreateCluster
   - ecs:DeleteCluster
   - ecs:DescribeClusters
@@ -71,6 +73,7 @@ actions:
   - elasticloadbalancing:AddTags
   - elasticloadbalancing:CreateListener
   - elasticloadbalancing:CreateLoadBalancer
+  - elasticloadbalancing:DeleteListener
   - elasticloadbalancing:DeleteLoadBalancer
   - elasticloadbalancing:DescribeListenerAttributes
   - elasticloadbalancing:DescribeListeners
@@ -136,6 +139,3 @@ actions:
   - s3:PutObjectAcl
   - s3:PutObjectVersionAcl
   - sts:GetCallerIdentity
-  - ec2:DisassociateRouteTable
-  - ec2:RevokeSecurityGroupIngress
-  - elasticloadbalancing:DeleteListener
