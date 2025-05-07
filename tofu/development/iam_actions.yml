@@ -136,3 +136,6 @@ actions:
   - s3:PutObjectAcl
   - s3:PutObjectVersionAcl
   - sts:GetCallerIdentity
+  - ec2:DisassociateRouteTable
+  - ec2:RevokeSecurityGroupIngress
+  - elasticloadbalancing:DeleteListener
