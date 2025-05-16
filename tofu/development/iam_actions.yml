@@ -71,6 +71,7 @@ actions:
   - ecs:DescribeClusters
   - ecs:PutClusterCapacityProviders
   - ecs:TagResource
+  - elasticloadbalancing:AddListenerCertificates
   - elasticloadbalancing:AddTags
   - elasticloadbalancing:CreateListener
   - elasticloadbalancing:CreateLoadBalancer
@@ -81,6 +82,7 @@ actions:
   - elasticloadbalancing:DescribeLoadBalancerAttributes
   - elasticloadbalancing:DescribeLoadBalancers
   - elasticloadbalancing:DescribeTags
+  - elasticloadbalancing:DescribeTargetGroups
   - elasticloadbalancing:ModifyListener
   - elasticloadbalancing:ModifyListenerAttributes
   - elasticloadbalancing:ModifyLoadBalancerAttributes
@@ -112,6 +114,7 @@ actions:
   - iam:UntagPolicy
   - iam:UntagRole
   - iam:UpdateAssumeRolePolicy
+  - logs:CreateLogGroup
   - s3:CreateBucket
   - s3:DeleteBucket
   - s3:DeleteObject
@@ -141,6 +144,3 @@ actions:
   - s3:PutObjectAcl
   - s3:PutObjectVersionAcl
   - sts:GetCallerIdentity
-  - elasticloadbalancing:AddListenerCertificates
-  - elasticloadbalancing:DescribeTargetGroups
-  - logs:CreateLogGroup
