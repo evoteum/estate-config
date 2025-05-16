@@ -141,3 +141,6 @@ actions:
   - s3:PutObjectAcl
   - s3:PutObjectVersionAcl
   - sts:GetCallerIdentity
+  - elasticloadbalancing:AddListenerCertificates
+  - elasticloadbalancing:DescribeTargetGroups
+  - logs:CreateLogGroup
