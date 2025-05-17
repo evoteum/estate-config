@@ -69,6 +69,7 @@ actions:
   - ecs:CreateCluster
   - ecs:DeleteCluster
   - ecs:DescribeClusters
+  - ecs:DescribeTaskDefinition
   - ecs:PutClusterCapacityProviders
   - ecs:RegisterTaskDefinition
   - ecs:TagResource
@@ -154,4 +155,3 @@ actions:
   - s3:PutObjectAcl
   - s3:PutObjectVersionAcl
   - sts:GetCallerIdentity
-  - ecs:DescribeTaskDefinition
