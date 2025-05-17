@@ -119,6 +119,7 @@ actions:
   - iam:UntagRole
   - iam:UpdateAssumeRolePolicy
   - logs:CreateLogGroup
+  - logs:DeleteLogGroup
   - logs:DescribeLogGroups
   - logs:ListTagsForResource
   - logs:PutRetentionPolicy
@@ -152,4 +153,3 @@ actions:
   - s3:PutObjectAcl
   - s3:PutObjectVersionAcl
   - sts:GetCallerIdentity
-  - logs:DeleteLogGroup
