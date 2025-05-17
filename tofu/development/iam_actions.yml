@@ -78,6 +78,7 @@ actions:
   - elasticloadbalancing:CreateTargetGroup
   - elasticloadbalancing:DeleteListener
   - elasticloadbalancing:DeleteLoadBalancer
+  - elasticloadbalancing:DeleteTargetGroup
   - elasticloadbalancing:DescribeListenerAttributes
   - elasticloadbalancing:DescribeListeners
   - elasticloadbalancing:DescribeLoadBalancerAttributes
@@ -118,6 +119,7 @@ actions:
   - iam:UntagRole
   - iam:UpdateAssumeRolePolicy
   - logs:CreateLogGroup
+  - logs:PutRetentionPolicy
   - logs:TagResource
   - s3:CreateBucket
   - s3:DeleteBucket
@@ -148,5 +150,3 @@ actions:
   - s3:PutObjectAcl
   - s3:PutObjectVersionAcl
   - sts:GetCallerIdentity
-  - elasticloadbalancing:DeleteTargetGroup
-  - logs:PutRetentionPolicy
