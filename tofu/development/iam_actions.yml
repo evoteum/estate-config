@@ -119,6 +119,7 @@ actions:
   - iam:UntagRole
   - iam:UpdateAssumeRolePolicy
   - logs:CreateLogGroup
+  - logs:DescribeLogGroups
   - logs:PutRetentionPolicy
   - logs:TagResource
   - s3:CreateBucket
@@ -150,4 +151,3 @@ actions:
   - s3:PutObjectAcl
   - s3:PutObjectVersionAcl
   - sts:GetCallerIdentity
-  - logs:DescribeLogGroups
