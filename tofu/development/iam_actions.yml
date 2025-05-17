@@ -83,6 +83,7 @@ actions:
   - elasticloadbalancing:DescribeLoadBalancerAttributes
   - elasticloadbalancing:DescribeLoadBalancers
   - elasticloadbalancing:DescribeTags
+  - elasticloadbalancing:DescribeTargetGroupAttributes
   - elasticloadbalancing:DescribeTargetGroups
   - elasticloadbalancing:ModifyListener
   - elasticloadbalancing:ModifyListenerAttributes
@@ -147,4 +148,3 @@ actions:
   - s3:PutObjectAcl
   - s3:PutObjectVersionAcl
   - sts:GetCallerIdentity
-  - elasticloadbalancing:DescribeTargetGroupAttributes
