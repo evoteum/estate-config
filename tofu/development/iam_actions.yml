@@ -87,6 +87,7 @@ actions:
   - elasticloadbalancing:ModifyListener
   - elasticloadbalancing:ModifyListenerAttributes
   - elasticloadbalancing:ModifyLoadBalancerAttributes
+  - elasticloadbalancing:ModifyTargetGroupAttributes
   - iam:AttachRolePolicy
   - iam:CreatePolicy
   - iam:CreatePolicyVersion
@@ -145,4 +146,3 @@ actions:
   - s3:PutObjectAcl
   - s3:PutObjectVersionAcl
   - sts:GetCallerIdentity
-  - elasticloadbalancing:ModifyTargetGroupAttributes
