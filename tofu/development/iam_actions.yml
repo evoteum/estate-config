@@ -70,6 +70,7 @@ actions:
   - ecs:DeleteCluster
   - ecs:DescribeClusters
   - ecs:PutClusterCapacityProviders
+  - ecs:RegisterTaskDefinition
   - ecs:TagResource
   - elasticloadbalancing:AddListenerCertificates
   - elasticloadbalancing:AddTags
@@ -153,4 +154,3 @@ actions:
   - s3:PutObjectAcl
   - s3:PutObjectVersionAcl
   - sts:GetCallerIdentity
-  - ecs:RegisterTaskDefinition
