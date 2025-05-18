@@ -67,6 +67,7 @@ actions:
   - ec2:RevokeSecurityGroupEgress
   - ec2:RevokeSecurityGroupIngress
   - ecs:CreateCluster
+  - ecs:CreateService
   - ecs:DeleteCluster
   - ecs:DescribeClusters
   - ecs:DescribeTaskDefinition
@@ -155,4 +156,3 @@ actions:
   - s3:PutObjectAcl
   - s3:PutObjectVersionAcl
   - sts:GetCallerIdentity
-  - ecs:CreateService
