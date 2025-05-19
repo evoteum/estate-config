@@ -70,6 +70,7 @@ actions:
   - ecs:CreateService
   - ecs:DeleteCluster
   - ecs:DescribeClusters
+  - ecs:DescribeServices
   - ecs:DescribeTaskDefinition
   - ecs:PutClusterCapacityProviders
   - ecs:RegisterTaskDefinition
@@ -159,4 +160,3 @@ actions:
   - s3:PutObjectAcl
   - s3:PutObjectVersionAcl
   - sts:GetCallerIdentity
-  - ecs:DescribeServices
