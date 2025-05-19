@@ -69,7 +69,7 @@ actions:
   - ecs:CreateCluster
   - ecs:CreateService
   - ecs:DeleteCluster
-  - ecs:DeleteService
+  - ecs:DeregisterTaskDefinition
   - ecs:DescribeClusters
   - ecs:DescribeServices
   - ecs:DescribeTaskDefinition
