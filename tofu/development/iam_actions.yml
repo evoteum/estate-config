@@ -69,6 +69,7 @@ actions:
   - ecs:CreateCluster
   - ecs:CreateService
   - ecs:DeleteCluster
+  - ecs:DeleteService
   - ecs:DescribeClusters
   - ecs:DescribeServices
   - ecs:DescribeTaskDefinition
@@ -161,4 +162,3 @@ actions:
   - s3:PutObjectAcl
   - s3:PutObjectVersionAcl
   - sts:GetCallerIdentity
-  - ecs:DeleteService
