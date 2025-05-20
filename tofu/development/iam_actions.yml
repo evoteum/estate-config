@@ -101,6 +101,7 @@ actions:
   - elasticloadbalancing:ModifyLoadBalancerAttributes
   - elasticloadbalancing:ModifyTargetGroupAttributes
   - elasticloadbalancing:RemoveListenerCertificates
+  - elasticloadbalancing:SetRulePriorities
   - iam:AttachRolePolicy
   - iam:CreatePolicy
   - iam:CreatePolicyVersion
@@ -164,4 +165,3 @@ actions:
   - s3:PutObjectAcl
   - s3:PutObjectVersionAcl
   - sts:GetCallerIdentity
-  - elasticloadbalancing:SetRulePriorities
