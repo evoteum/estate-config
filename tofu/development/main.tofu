@@ -1,5 +1,5 @@
 terraform {
-    required_version = "1.9.0"
+  required_version = "1.9.0"
 
   required_providers {
     aws = {
@@ -14,9 +14,9 @@ terraform {
       source  = "integrations/github"
       version = "6.6.0"
     }
-        google = {
-      source  = "opentofu/google"
-      version = "~> 6.48"
+    google = {
+      source  = "hashicorp/google"
+      version = "6.48.0"
     }
 
   }

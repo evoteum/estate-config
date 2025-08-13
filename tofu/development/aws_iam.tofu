@@ -6,7 +6,7 @@ resource "aws_iam_policy" "github_role_policy" {
 data "aws_iam_policy_document" "github_policy" {
   statement {
     actions = local.iam_actions
-    effect = "Allow"
+    effect  = "Allow"
     resources = [
       "*"
     ]
