@@ -43,3 +43,9 @@ provider "github" {
   owner = var.organisation
   app_auth {} # When using `GITHUB_APP_XXX` environment variables
 }
+
+provider "google" {
+  project     = "arctic-sentry-468900-g0"
+  region      = "europe-west2"
+  zone        = "europe-west2-a"
+}
