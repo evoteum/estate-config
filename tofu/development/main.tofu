@@ -1,4 +1,6 @@
 terraform {
+    required_version = "1.9.0"
+
   required_providers {
     aws = {
       source  = "hashicorp/aws"
@@ -12,8 +14,12 @@ terraform {
       source  = "integrations/github"
       version = "6.6.0"
     }
+        google = {
+      source  = "opentofu/google"
+      version = "~> 6.48"
+    }
+
   }
-  required_version = "1.9.0"
   backend "s3" {
     bucket = "tofu-state-*****" # Provided in CD
     key    = ""

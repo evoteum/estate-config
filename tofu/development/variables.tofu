@@ -12,7 +12,7 @@ variable "cloudflare_account_id" {
 
 variable "oidc_audience" {
   type        = string
-  description = "Audience for the OIDC provider"
+  description = "Audience for the AWS OIDC provider"
   default     = "sts.amazonaws.com"
 }
 
