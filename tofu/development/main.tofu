@@ -45,7 +45,7 @@ provider "github" {
 }
 
 provider "google" {
-  project     = "arctic-sentry-468900-g0"
-  region      = "europe-west2"
-  zone        = "europe-west2-a"
+  project = "arctic-sentry-468900-g0"
+  region  = "europe-west2"
+  zone    = "europe-west2-a"
 }
