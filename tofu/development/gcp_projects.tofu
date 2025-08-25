@@ -86,7 +86,7 @@ locals {
   }
   gcp_project_ids = {
     for k, v in local.gcp_projects :
-    k => "${v.project_id}-${random_id.project_suffix[k].hex}"
+    k => "${k}-${random_id.project_suffix[k].hex}"
   }
 
 }
