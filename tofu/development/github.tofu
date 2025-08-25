@@ -17,21 +17,6 @@ locals {
     target_arch = "amd64"
     target_os   = "linux"
 
-    gcp_project_ids = jsonencode({
-      for k, p in google_project.projects :
-      k => p.project_id
-    })
-
-    gcp_project_numbers = jsonencode({
-      for k, p in google_project.projects :
-      k => p.number
-    })
-
-    gcp_project_folder_ids = jsonencode({
-      for k, v in local.gcp_projects :
-      k => google_folder.folders[v.folder_key].name
-    })
-
   }
 }
 
