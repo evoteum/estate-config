@@ -1,7 +1,7 @@
 locals {
   organisation_variables = {
     app_name            = "app"
-    aws_region          = var.aws_region
+    aws_region          = "eu-west-2"
     build_flags         = "NONE"
     fail_fast           = true
     gcp_billing_account = "017009-6CF9CA-2FE9F1"
@@ -12,11 +12,10 @@ locals {
       "staging",
       "production",
     ])
-    quay_domain                       = local.quay_domain
-    quay_url                          = "https://${local.quay_domain}"
-    target_arch                       = "amd64"
-    target_os                         = "linux"
-    terraform_docs_is_tofu_compatible = local.terraform_docs_is_tofu_compatible
+    quay_domain = local.quay_domain
+    quay_url    = "https://${local.quay_domain}"
+    target_arch = "amd64"
+    target_os   = "linux"
   }
 }
 

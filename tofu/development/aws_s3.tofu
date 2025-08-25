@@ -41,7 +41,3 @@ resource "aws_s3_bucket_public_access_block" "tofu_state" {
   ignore_public_acls      = true
   restrict_public_buckets = true
 }
-
-resource "aws_s3_bucket" "tofu_test" {
-  bucket = "evoteum-tofu-test"
-}
