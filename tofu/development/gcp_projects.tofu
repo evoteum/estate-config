@@ -38,7 +38,7 @@ locals {
     }
 
     development = {
-      project_id = "env-app-dev"
+      project_id = "environment-development"
       name       = "Development Environment"
       folder_key = "environments"
       env        = "development"
@@ -64,7 +64,7 @@ locals {
     }
 
     production = {
-      project_id = "${var.organisation}-environment-production"
+      project_id = "environment-production"
       name       = "Production Environment"
       folder_key = "environments"
       env        = "production"
