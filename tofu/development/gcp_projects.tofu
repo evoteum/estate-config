@@ -13,8 +13,6 @@ locals {
   }
   gcp_projects = {
     platform_infrastructure = {
-      project_id = "platform-infrastructure"
-      name       = "Platform Infrastructure"
       folder_key = "platform"
       env        = "platform"
       location   = var.gcp_region
@@ -38,8 +36,6 @@ locals {
     }
 
     development = {
-      project_id = "environment-development"
-      name       = "Development Environment"
       folder_key = "environments"
       env        = "development"
       location   = var.gcp_region
@@ -64,8 +60,6 @@ locals {
     }
 
     production = {
-      project_id = "environment-production"
-      name       = "Production Environment"
       folder_key = "environments"
       env        = "production"
       location   = var.gcp_region
@@ -90,17 +84,29 @@ locals {
       iam = []
     }
   }
+  gcp_project_ids = {
+    for k, v in local.gcp_projects :
+    k => "${v.project_id}-${random_id.project_suffix[k].hex}"
+  }
+
+}
+
+resource "random_id" "project_suffix" {
+  for_each    = local.gcp_projects
+  byte_length = 3
 }
 
 resource "google_project" "projects" {
   for_each = local.gcp_projects
 
-  project_id      = each.value.project_id
-  name            = each.value.name
-  folder_id       = google_folder.folders[each.value.folder_key].name
+  name            = each.key
+  project_id      = local.gcp_project_ids[each.key]
+  folder_id       = google_folder.folders[each.value.folder_key].id
   billing_account = local.organisation_variables.gcp_billing_account
   labels          = each.value.labels
-  lifecycle { prevent_destroy = true }
+  lifecycle {
+    prevent_destroy = true
+  }
 }
 
 locals {
@@ -132,16 +138,4 @@ resource "google_project_iam_member" "iam" {
   project = google_project.projects[each.value.project_key].project_id
   role    = each.value.role
   member  = each.value.member
-}
-
-output "project_ids" {
-  value = { for k, p in google_project.projects : k => p.project_id }
-}
-
-output "project_numbers" {
-  value = { for k, p in google_project.projects : k => p.number }
-}
-
-output "project_folder_ids" {
-  value = { for k, v in local.gcp_projects : k => google_folder.folders[v.folder_key].name }
 }
