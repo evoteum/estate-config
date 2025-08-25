@@ -14,7 +14,7 @@ resource "google_service_account" "gh_deployer" {
 }
 
 module "gh_oidc" {
-  source  = "terraform-google-modules/github-actions-runners/google//submodules/gh-oidc"
+  source  = "terraform-google-modules/github-actions-runners/google//modules/gh-oidc"
   version = "5.0.0"
 
   project_id = google_project.projects["platform_infrastructure"].project_id
