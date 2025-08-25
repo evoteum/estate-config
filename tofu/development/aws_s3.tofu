@@ -12,7 +12,7 @@ resource "random_string" "state_bucket_suffix" {
 resource "aws_s3_bucket" "tofu_state" {
   bucket = local.state_bucket_name
   lifecycle {
-    prevent_destroy = false
+    prevent_destroy = true
   }
 }
 
