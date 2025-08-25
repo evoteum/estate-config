@@ -22,18 +22,6 @@ variable "gcp_region" {
   type        = string
 }
 
-variable "gcp_service_account_opentofu_email" {
-  description = "email address for the OpenTofu GCP Service Account"
-  type        = string
-  sensitive   = true
-}
-
-variable "gcp_service_account_opentofu_id" {
-  description = "Unique ID of the OpenTofu GCP Service Account"
-  type        = string
-  sensitive   = true
-}
-
 variable "gcp_zone_suffix" {
   description = "The zone letter after the GCP region, usually a, b, c or d"
   default     = "a"
