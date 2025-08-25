@@ -17,7 +17,7 @@ locals {
       name       = "Platform Infrastructure"
       folder_key = "platform"
       env        = "platform"
-      location   = "europe-west2"
+      location   = var.gcp_region
 
       labels = {
         area            = "platform"
@@ -42,7 +42,7 @@ locals {
       name       = "Development Environment"
       folder_key = "environments"
       env        = "development"
-      location   = "europe-west2"
+      location   = var.gcp_region
 
       labels = {
         area            = "app"
@@ -97,7 +97,7 @@ resource "google_project" "projects" {
 
   project_id      = each.value.project_id
   name            = each.value.name
-  folder_id       = google_folder.folders[each.value.folder_key].name # "folders/123..."
+  folder_id       = google_folder.folders[each.value.folder_key].name
   billing_account = local.organisation_variables.gcp_billing_account
   labels          = each.value.labels
   lifecycle { prevent_destroy = true }
