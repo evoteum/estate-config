@@ -10,6 +10,41 @@ variable "cloudflare_account_id" {
   sensitive   = true
 }
 
+variable "gcp_project_id" {
+  description = "The ID of the GCP project we are deploying into"
+  default     = "arctic-sentry-468900-g0"
+  type        = string
+}
+
+variable "gcp_region" {
+  default     = "europe-west2"
+  description = "The GCP region to deploy the infrastructure to without the zone suffix; see https://cloud.google.com/compute/docs/regions-zones#available"
+  type        = string
+}
+
+variable "gcp_service_account_opentofu_email" {
+  description = "email address for the OpenTofu GCP Service Account"
+  type        = string
+  sensitive   = true
+}
+
+variable "gcp_service_account_opentofu_id" {
+  description = "Unique ID of the OpenTofu GCP Service Account"
+  type        = string
+  sensitive   = true
+}
+
+variable "gcp_zone_suffix" {
+  description = "The zone letter after the GCP region, usually a, b, c or d"
+  default     = "a"
+  type        = string
+  validation {
+    condition     = can(regex("^[A-Za-z]$", var.gcp_zone_suffix))
+    error_message = "gcp_zone_suffix must be a single latin letter"
+  }
+
+}
+
 variable "oidc_audience" {
   type        = string
   description = "Audience for the AWS OIDC provider"

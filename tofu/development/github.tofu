@@ -1,18 +1,44 @@
+locals {
+  organisation_variables = {
+    app_name            = "app"
+    aws_region          = var.aws_region
+    build_flags         = "NONE"
+    fail_fast           = true
+    gcp_billing_account = "017009-6CF9CA-2FE9F1"
+    gcp_organisation_id = "1005660309245"
+    language_version    = "NONE"
+    permitted_environments = jsonencode([
+      "development",
+      "staging",
+      "production",
+    ])
+    quay_domain                       = local.quay_domain
+    quay_url                          = "https://${local.quay_domain}"
+    target_arch                       = "amd64"
+    target_os                         = "linux"
+    terraform_docs_is_tofu_compatible = local.terraform_docs_is_tofu_compatible
+  }
+}
+
 resource "github_organization_settings" "main" {
-  billing_email                                                = "billing@${local.website}"
-  company                                                      = var.organisation
-  blog                                                         = "https://${local.website}"
-  email                                                        = "sup@${local.website}"
-  twitter_username                                             = null
-  location                                                     = "Earth"
-  name                                                         = var.organisation
-  description                                                  = var.org_slogan
-  has_organization_projects                                    = true
-  has_repository_projects                                      = true
-  default_repository_permission                                = "read"
-  members_can_create_repositories                              = false
-  members_can_create_public_repositories                       = false
-  members_can_create_private_repositories                      = false
+  billing_email                 = "billing@${local.website}"
+  company                       = var.organisation
+  blog                          = "https://${local.website}"
+  email                         = "sup@${local.website}"
+  twitter_username              = null
+  location                      = "Earth"
+  name                          = var.organisation
+  description                   = var.org_slogan
+  has_organization_projects     = true
+  has_repository_projects       = true
+  default_repository_permission = "read"
+
+  # Disable manual repository creation.
+  # All repositories are provisioned automatically via the estate-repos repository.
+  members_can_create_repositories         = false
+  members_can_create_public_repositories  = false
+  members_can_create_private_repositories = false
+
   members_can_create_pages                                     = true
   members_can_create_public_pages                              = true
   members_can_create_private_pages                             = false
@@ -37,19 +63,12 @@ resource "github_actions_organization_secret" "aws_role_to_assume" {
   plaintext_value = aws_iam_role.github_role.arn
 }
 
-resource "github_actions_organization_variable" "tofu_is_junit_compatible" {
-  value         = local.tofu_is_junit_compatible
-  variable_name = "TOFU_IS_JUNIT_COMPATIBLE"
-  visibility    = "all"
-}
-
-
 module "github_variable" {
   source   = "github.com/evoteum/tofu-modules//github/variable"
   for_each = local.organisation_variables
 
   sensitive = false
   scope     = "organisation"
-  name      = each.key
+  name      = upper(each.key)
   value     = each.value
 }
