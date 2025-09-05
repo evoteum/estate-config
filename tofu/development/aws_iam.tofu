@@ -1,3 +1,9 @@
+locals {
+  github_oidc_subs = [
+    for github_organisation in local.github_organisations : "repo:${github_organisation}/*"
+  ]
+}
+
 resource "aws_iam_policy" "github_role_policy" {
   name   = "github_role_policy"
   policy = data.aws_iam_policy_document.github_policy.json
@@ -29,7 +35,7 @@ data "aws_iam_policy_document" "github_allow" {
     condition {
       test     = "StringLike"
       variable = "token.actions.githubusercontent.com:sub"
-      values   = ["repo:${var.organisation}/*"]
+      values   = local.github_oidc_subs
     }
   }
 }
@@ -38,4 +44,3 @@ resource "aws_iam_role_policy_attachment" "attach_github_role" {
   role       = aws_iam_role.github_role.name
   policy_arn = aws_iam_policy.github_role_policy.arn
 }
-

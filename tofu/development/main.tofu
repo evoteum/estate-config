@@ -35,6 +35,7 @@ provider "aws" {
       Project       = var.repository_name
       ManagedBy     = "OpenTofu"
       RepositoryURL = var.repository_url
+      Organisation  = var.organisation
     }
   }
 }
@@ -45,7 +46,7 @@ provider "github" {
 }
 
 provider "google" {
-  project = local.gcp_projects.platform_infrastructure.project_id
+  project = local.gcp_project_ids.platform_infrastructure
   region  = var.gcp_region
   zone    = local.gcp_zone
 }
