@@ -12,7 +12,7 @@ locals {
     ]) : pair.key => pair
   }
   gcp_projects = {
-    platform_infrastructure = {
+    platform = {
       folder_key = "platform"
       env        = "platform"
       location   = var.gcp_region

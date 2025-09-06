@@ -46,7 +46,7 @@ provider "github" {
 }
 
 provider "google" {
-  project = local.gcp_project_ids.platform_infrastructure
+  project = "platform"
   region  = var.gcp_region
   zone    = local.gcp_zone
 }

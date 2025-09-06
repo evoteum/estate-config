@@ -10,14 +10,14 @@ locals {
 resource "google_service_account" "gh_deployer" {
   account_id   = "gh-deployer"
   display_name = "GitHub deployer (all repos in ${var.organisation})"
-  project      = google_project.projects["platform_infrastructure"].project_id
+  project      = google_project.projects["platform"].project_id
 }
 
 module "gh_oidc" {
   source  = "terraform-google-modules/github-actions-runners/google//modules/gh-oidc"
   version = "5.0.0"
 
-  project_id = google_project.projects["platform_infrastructure"].project_id
+  project_id = google_project.projects["platform"].project_id
 
   pool_id           = "github-oidc"
   pool_display_name = "GitHub OIDC"
@@ -45,7 +45,7 @@ module "gh_oidc" {
 
 resource "google_project_iam_member" "gh_deployer_roles" {
   for_each = toset(local.gcp_deployer_roles)
-  project  = google_project.projects["platform_infrastructure"].project_id
+  project  = google_project.projects["platform"].project_id
   role     = each.value
   member   = "serviceAccount:${google_service_account.gh_deployer.email}"
 }

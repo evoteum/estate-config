@@ -7,9 +7,9 @@ locals {
   iam_actions                  = local.iam_actions_yml.actions
   gcp_zone                     = "${lower(var.gcp_region)}-${lower(var.gcp_zone_suffix)}"
   business_units = [
-    "orange",
+    "black",
     "blue",
-    "black"
+    "orange",
   ]
   github_organisations = concat(
     [
