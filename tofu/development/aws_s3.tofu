@@ -1,6 +1,13 @@
 locals {
   state_bucket_suffix = random_string.state_bucket_suffix.result
   state_bucket_name   = "tofu-state-${local.state_bucket_suffix}"
+  organisation_environments = [for pair in setproduct(
+    local.github_organisations,
+    local.organisation_variables.permitted_environments,
+    ) : {
+    github_organisation = pair[0].key
+    environment         = pair[1].key
+  }]
 }
 
 resource "random_string" "state_bucket_suffix" {
@@ -40,4 +47,13 @@ resource "aws_s3_bucket_public_access_block" "tofu_state" {
   block_public_policy     = true
   ignore_public_acls      = true
   restrict_public_buckets = true
+}
+
+module "state_buckets" {
+  for_each     = local.organisation_environments
+  source       = "github.com/evoteum/tofu-modules//aws/bucket"
+  organisation = each.value.github_organisation
+  project      = var.repository_name
+  environment  = each.value.environment
+  purpose      = "tfstate"
 }
