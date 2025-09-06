@@ -1,13 +1,17 @@
 locals {
   state_bucket_suffix = random_string.state_bucket_suffix.result
   state_bucket_name   = "tofu-state-${local.state_bucket_suffix}"
-  organisation_environments = [for pair in setproduct(
-    local.github_organisations,
-    local.permitted_environments,
-    ) : {
-    github_organisation = pair[0]
-    environment         = pair[1]
-  }]
+  organisation_environments = {
+    for pair in setproduct(
+      local.github_organisations,
+      local.organisation_variables.permitted_environments
+    ) :
+    "${pair[0]}-${pair[1]}" => {
+      github_organisation = pair[0]
+      environment         = pair[1]
+    }
+  }
+
 }
 
 resource "random_string" "state_bucket_suffix" {
