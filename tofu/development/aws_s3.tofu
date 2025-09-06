@@ -9,6 +9,7 @@ locals {
     "${pair[0]}-${pair[1]}" => {
       github_organisation = pair[0]
       environment         = pair[1]
+      purpose             = "tfstate"
     }
   }
 
@@ -51,4 +52,13 @@ resource "aws_s3_bucket_public_access_block" "tofu_state" {
   block_public_policy     = true
   ignore_public_acls      = true
   restrict_public_buckets = true
+}
+
+module "s3_buckets" {
+  for_each     = local.organisation_environments
+  source       = "github.com/evoteum/tofu-modules//aws/bucket"
+  organisation = each.value.github_organisation
+  project      = var.repository_name
+  environment  = each.value.environment
+  purpose      = each.value.purpose
 }
