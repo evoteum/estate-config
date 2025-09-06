@@ -28,11 +28,13 @@ module "gh_oidc" {
   provider_description  = "GitHub OIDC provider"
   issuer_uri            = "https://token.actions.githubusercontent.com"
 
-  # Important: allow only tokens from our org
-  attribute_condition = "assertion.repository_owner == \"${var.organisation}\""
+  attribute_condition = join(
+    " || ",
+    [for org in local.github_organisations : "assertion.repository_owner == \"${org}\""]
+  )
 
   allowed_audiences = [
-    "https://github.com/${var.organisation}"
+    for org in local.github_organisations : "https://github.com/${org}"
   ]
 
   sa_mapping = {
