@@ -5,8 +5,8 @@ locals {
     local.github_organisations,
     local.permitted_environments,
     ) : {
-    github_organisation = pair[0].key
-    environment         = pair[1].key
+    github_organisation = pair[0]
+    environment         = pair[1]
   }]
 }
 
