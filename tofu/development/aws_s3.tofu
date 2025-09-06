@@ -3,7 +3,7 @@ locals {
   state_bucket_name   = "tofu-state-${local.state_bucket_suffix}"
   organisation_environments = [for pair in setproduct(
     local.github_organisations,
-    local.organisation_variables.permitted_environments,
+    local.permitted_environments,
     ) : {
     github_organisation = pair[0].key
     environment         = pair[1].key

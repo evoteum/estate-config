@@ -1,4 +1,9 @@
 locals {
+  permitted_environments = [
+    "development",
+    "staging",
+    "production",
+  ]
   website                      = "${var.organisation}.com"
   account_token_manager_expiry = "25h"
   quay_domain                  = "quay.io"
