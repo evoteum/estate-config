@@ -1,23 +1,28 @@
 locals {
   organisation_variables = {
-    app_name            = "app"
-    aws_region          = "eu-west-2"
-    build_flags         = "NONE"
-    fail_fast           = true
-    gcp_billing_account = "017009-6CF9CA-2FE9F1"
-    gcp_organisation_id = "1005660309245"
-    language_version    = "NONE"
-    permitted_environments = jsonencode([
-      "development",
-      "staging",
-      "production",
-    ])
-    quay_domain = local.quay_domain
-    quay_url    = "https://${local.quay_domain}"
-    target_arch = "amd64"
-    target_os   = "linux"
+    app_name               = "app"
+    aws_region             = "eu-west-2"
+    build_flags            = "NONE"
+    fail_fast              = true
+    gcp_billing_account    = "017009-6CF9CA-2FE9F1"
+    gcp_organisation_id    = "1005660309245"
+    language_version       = "NONE"
+    permitted_environments = jsonencode(local.permitted_environments)
+    quay_domain            = local.quay_domain
+    quay_url               = "https://${local.quay_domain}"
+    target_arch            = "amd64"
+    target_os              = "linux"
 
   }
+  gcp_project_variables = {
+    for k, v in local.gcp_project_ids :
+    "GCP_PROJECT_${k}" => v
+  }
+  github_variables = merge(
+    local.organisation_variables,
+    local.gcp_project_variables,
+  )
+
 }
 
 resource "github_organization_settings" "main" {
@@ -65,7 +70,7 @@ resource "github_actions_organization_secret" "aws_role_to_assume" {
 
 module "github_variable" {
   source   = "github.com/evoteum/tofu-modules//github/variable"
-  for_each = local.organisation_variables
+  for_each = local.github_variables
 
   sensitive = false
   scope     = "organisation"
