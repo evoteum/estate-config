@@ -4,7 +4,7 @@ locals {
   organisation_environments = {
     for pair in setproduct(
       local.github_organisations,
-      local.organisation_variables.permitted_environments
+      local.permitted_environments
     ) :
     "${pair[0]}-${pair[1]}" => {
       github_organisation = pair[0]
