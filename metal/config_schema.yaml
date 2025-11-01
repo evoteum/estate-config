@@ -1,32 +1,36 @@
 $schema: "https://json-schema.org/draft/2020-12/schema"
-title: "Ubuntu Image Builder Config"
+title: "Metal Fleet Configuration"
 type: object
 required:
-  - hostname_prefix
-  - ip_base
+  - fleets
   - hardware
+  - users
+  - defaults
 properties:
-  hostname_prefix:
-    type: string
-    pattern: "^[a-zA-Z0-9-]+$"
-    description: "Global cluster prefix (e.g. k8s)"
-  ip_base:
-    type: string
-    pattern: "^(?:[0-9]{1,3}\.){3}$"
-    description: "IP base (e.g. 192.168.8.)"
-  defaults:
+  fleets:
     type: object
-    properties:
-      image_size:
-        type: string
-        pattern: "^[0-9]+[MG]$"
-      timezone:
-        type: string
-      locale:
-        type: string
+    minProperties: 1
+    description: "Collection of defined fleets (e.g. lab, prod, laptops)."
+    additionalProperties:
+      type: object
+      required:
+        - ip_base
+        - operating_system
+      properties:
+        ip_base:
+          type: string
+          pattern: "^(?:[0-9]{1,3}\.){3}$"
+          description: "Base IP for the fleet (e.g. 192.168.8.)"
+        kubernetes:
+          type: boolean
+          description: "Indicates if this fleet hosts a Kubernetes cluster."
+        operating_system:
+          type: string
+          description: "Operating system used for this fleet (e.g. ubuntu)."
+
   hardware:
     type: object
-    required: ["models", "devices"]
+    required: ["models", "hosts"]
     properties:
       models:
         type: object
@@ -44,23 +48,81 @@ properties:
               enum: ["amd64", "arm64", "armhf", "ppc64el", "s390x", "riscv64"]
             base_image:
               type: string
+              description: "Base Ubuntu image to use (e.g. noble-arm64)."
             gadget:
               type: string
+              description: "Gadget snap or platform definition (e.g. pi5, pc)."
             kernel:
               type: string
+              description: "Kernel package or snap (e.g. linux-raspi)."
             hostname_prefix:
               type: string
-      devices:
+              pattern: "^[a-zA-Z0-9-]+$"
+              description: "Prefix for hostnames of this model (e.g. rpi, nuc)."
+      hosts:
         type: array
         minItems: 1
+        description: "List of physical hosts to build images for."
         items:
           type: object
-          required: ["id", "model"]
+          required:
+            - id
+            - model
+            - fleet
+            - role
           properties:
             id:
-              type: string
-              pattern: "^[0-9]{1,3}$"
-              description: "Unique device ID suffix (e.g. 010)"
+              type: integer
+              minimum: 1
+              maximum: 254
+              description: "Unique host ID (used as final octet in IP address)."
             model:
               type: string
-              description: "Model name matching a key under hardware.models"
+              description: "Model key referencing hardware.models."
+            fleet:
+              type: string
+              description: "Fleet name referencing top-level fleets."
+            role:
+              type: string
+              description: "Role of the host (e.g. controller, worker)."
+
+  users:
+    type: array
+    minItems: 1
+    description: "User accounts to be configured on all images."
+    items:
+      type: object
+      required: ["name", "ssh_keys"]
+      properties:
+        name:
+          type: string
+          pattern: "^[a-z_][a-z0-9_-]*[$]?$"
+          description: "System username."
+        groups:
+          type: array
+          items:
+            type: string
+          description: "System groups the user should belong to."
+        ssh_keys:
+          type: array
+          items:
+            type: string
+            pattern: "^ssh-(rsa|ed25519|ecdsa)-"
+          description: "SSH public keys for this user."
+
+  defaults:
+    type: object
+    required: ["image_size", "timezone", "locale"]
+    properties:
+      image_size:
+        type: string
+        pattern: "^[0-9]+[MG]$"
+        description: "Default image size (e.g. 8G)."
+      timezone:
+        type: string
+        description: "Default timezone (e.g. Europe/London)."
+      locale:
+        type: string
+        description: "Default locale (e.g. en_GB.UTF-8)."
+
+additionalProperties: false
