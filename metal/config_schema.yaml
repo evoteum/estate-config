@@ -42,7 +42,7 @@ properties:
             - base_image
             - gadget
             - kernel
-            - hostname_prefix
+            - shortname
           properties:
             architecture:
               enum: ["amd64", "arm64", "armhf", "ppc64el", "s390x", "riscv64"]
@@ -55,10 +55,10 @@ properties:
             kernel:
               type: string
               description: "Kernel package or snap (e.g. linux-raspi)."
-            hostname_prefix:
+            shortname:
               type: string
               pattern: "^[a-zA-Z0-9-]+$"
-              description: "Prefix for hostnames of this model (e.g. rpi, nuc)."
+              description: "Short name for hostnames of this model (e.g. rpi, nuc)."
       hosts:
         type: array
         minItems: 1

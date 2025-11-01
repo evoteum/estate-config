@@ -12,13 +12,13 @@ hardware:
       architecture: arm64
       base_image: noble-arm64
       gadget: pi5
-      hostname_prefix: rpi
+      shortname: pi5
       kernel: linux-raspi
     intel-nuc:
       architecture: amd64
       base_image: noble-amd64
       gadget: pc
-      hostname_prefix: nuc
+      shortname: nuc
       kernel: linux-generic
   hosts:
     - id: 10
