@@ -1,0 +1,81 @@
+# Metal Fleet Configuration
+
+fleets:
+  lab:
+    ip_base: "192.168.8."
+    kubernetes: true
+    operating_system: ubuntu
+
+hardware:
+  models:
+    raspberry-pi5:
+      architecture: arm64
+      base_image: noble-arm64
+      gadget: pi5
+      hostname_prefix: rpi
+      kernel: linux-raspi
+    intel-nuc:
+      architecture: amd64
+      base_image: noble-amd64
+      gadget: pc
+      hostname_prefix: nuc
+      kernel: linux-generic
+  hosts:
+    - id: 10
+      model: raspberry-pi5
+      fleet: lab
+      role: controller
+    - id: 11
+      model: raspberry-pi5
+      fleet: lab
+      role: controller
+    - id: 12
+      model: raspberry-pi5
+      fleet: lab
+      role: controller
+    - id: 13
+      model: raspberry-pi5
+      fleet: lab
+      role: worker
+    - id: 14
+      model: raspberry-pi5
+      fleet: lab
+      role: worker
+    - id: 15
+      model: raspberry-pi5
+      fleet: lab
+      role: worker
+    - id: 16
+      model: raspberry-pi5
+      fleet: lab
+      role: worker
+    - id: 17
+      model: raspberry-pi5
+      fleet: lab
+      role: worker
+    - id: 18
+      model: raspberry-pi5
+      fleet: lab
+      role: worker
+    - id: 19
+      model: raspberry-pi5
+      fleet: lab
+      role: worker
+    - id: 20
+      model: intel-nuc
+      fleet: lab
+      role: worker
+
+users:
+  - name: james
+    groups:
+      - sudo
+    ssh_keys:
+      - ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJd0sUO30VqCgtyYuZMITSVTvdrIsvjIG9RsN4MEc6AZ j@jamesgeddes.pro
+
+defaults:
+  image_size: "8G"
+  timezone: "Europe/London"
+  locale: "en_GB.UTF-8"
+  template_dir: "templates"
+  output_dir: "output"
